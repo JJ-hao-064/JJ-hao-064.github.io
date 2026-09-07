@@ -202,6 +202,12 @@
     .exp-head { font-weight: 600; font-size: 1.02rem; }
     .exp-org { margin: 1px 0 4px; }
     .exp-org .loc { color: var(--muted); font-size: 0.92rem; }
+    .exp-org .logo {
+      height: 20px; width: auto;
+      vertical-align: -5px;
+      margin-right: 8px;
+      border-radius: 4px;
+    }
     .exp-type { display: inline-block; font-size: 0.72rem; font-weight: 600; padding: 1px 9px; border-radius: 999px; margin-left: 8px; vertical-align: 1px; }
     .exp-type.edu { background: rgba(21, 154, 140, 0.15); color: #108477; }
     .exp-type.int { background: rgba(59, 130, 214, 0.15); color: #2f6fc4; }
@@ -211,11 +217,19 @@
     .exp-detail li { margin-bottom: 2px; font-size: 0.95rem; }
     .exp-desc { margin: 6px 0 0; font-size: 0.95rem; }
     .exp-meta { color: var(--muted); font-size: 0.9rem; margin-top: 8px; }
+    .exp-photos { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px; }
+    .exp-photos img {
+      flex: 1 1 240px;
+      max-width: 360px;
+      width: 100%;
+      border-radius: 10px;
+    }
     @media (prefers-color-scheme: dark) {
       .nav { background: rgba(26, 28, 30, 0.82); }
       .exp-type.edu { color: #4fd0bf; }
       .exp-type.int { color: #8abaf5; }
       .exp-type.team { color: #f0b45a; }
+      .exp-org .logo { background: #f2f4f6; padding: 2px 3px; border-radius: 5px; }
     }
 
     /* ── Awards(获奖,分组展示) ──────────────── */
@@ -264,6 +278,8 @@
        6. 背景横幅: About 头部的背景图 —— 用你的图替换 assets/banner.svg (或改用 banner.jpg 并更新 CSS 里 .hero 的 url)
        7. 获奖板块: Awards 里按分组改标题、复制 <li> 即可
        8. 社交链接: 把 GitHub / Google Scholar 的注释行取消注释并填入你的 ID
+       9. Logo/照片: 同名替换 assets/logos、assets/photos 下的占位文件即可;
+          若换成 .jpg/.png,记得把对应 <img> 的 src 后缀一起改(清单见 README)
   ══════════════════════════════════════════════════════════════════════ -->
 
   <!-- ── 顶部导航(锚点索引,滚动时吸顶) ── -->
@@ -390,7 +406,7 @@
       <div class="exp-date">Sep 2025 – Mar 2028<br>(Expected)</div>
       <div>
         <div class="exp-head">M.S. Student in Vehicle Engineering (Automotive Electronics) <span class="exp-type edu">Education</span></div>
-        <div class="exp-org"><a href="https://www.tongji.edu.cn/" target="_blank">Tongji University</a> <span class="loc">· Shanghai, China</span></div>
+        <div class="exp-org"><img class="logo" src="assets/logos/tongji.svg" alt=""><a href="https://www.tongji.edu.cn/" target="_blank">Tongji University</a> <span class="loc">· Shanghai, China</span></div>
         <p class="exp-desc">
           Research on <b>deep-learning-based battery SOH / SOC prediction</b> and
           <b>edge-AI model compression &amp; deployment</b>.
@@ -406,7 +422,7 @@
       <div class="exp-date">Sep 2021 – Jun 2025</div>
       <div>
         <div class="exp-head">B.Eng. Student in Automotive Service Engineering <span class="exp-type edu">Education</span></div>
-        <div class="exp-org"><a href="https://www.jlu.edu.cn/" target="_blank">Jilin University</a> <span class="loc">· Changchun, China</span></div>
+        <div class="exp-org"><img class="logo" src="assets/logos/jlu.svg" alt=""><a href="https://www.jlu.edu.cn/" target="_blank">Jilin University</a> <span class="loc">· Changchun, China</span></div>
         <p class="exp-desc">
           Major rank <b>3/64 (top 5%)</b>. Coursework: computer science fundamentals, Python,
           control engineering, sensing technology, vehicle theory, automotive networks,
@@ -419,7 +435,7 @@
       <div class="exp-date">Jun 2026 – Present</div>
       <div>
         <div class="exp-head">Autonomous Driving Planning &amp; Control / Multimodal Algorithm Intern <span class="exp-type int">Internship</span></div>
-        <div class="exp-org"><a href="https://horizonrobotics.ai" target="_blank">Horizon Robotics</a> <span class="loc">· Beijing, China</span></div>
+        <div class="exp-org"><img class="logo" src="assets/logos/horizon.svg" alt=""><a href="https://horizonrobotics.ai" target="_blank">Horizon Robotics</a> <span class="loc">· Beijing, China</span></div>
         <ul class="exp-detail">
           <li>Development, iteration and validation of end-to-end planning &amp; control models and VLM scene-mining models: expert pos/neg data construction, loss design, training, visualization debugging and generalization experiments.</li>
           <li>Hard-case data for navigation lane-change game, pre-intersection lane selection and ramp merging; gradient re-weighting of navigation lane-change samples by remaining count to improve urgency representation.</li>
@@ -435,7 +451,7 @@
       <div class="exp-date">Mar 2025 – Jun 2025</div>
       <div>
         <div class="exp-head">Embedded Software Intern <span class="exp-type int">Internship</span></div>
-        <div class="exp-org"><a href="https://www.schaeffler.com" target="_blank">Schaeffler (Vitesco Technologies)</a> <span class="loc">· China</span></div>
+        <div class="exp-org"><img class="logo" src="assets/logos/schaeffler.svg" alt=""><a href="https://www.schaeffler.com" target="_blank">Schaeffler (Vitesco Technologies)</a> <span class="loc">· China</span></div>
         <ul class="exp-detail">
           <li>CAN bus communication testing; developed CAPL scripts on <b>Vector CANoe</b> for automated message parsing.</li>
           <li>Optimized the log-analysis workflow; located and fixed 2 intermittent bus communication issues.</li>
@@ -449,7 +465,7 @@
       <div class="exp-date">Nov 2022 – Nov 2024</div>
       <div>
         <div class="exp-head">Planning &amp; Control Lead, Driverless Formula Racing Team <span class="exp-type team">Team</span></div>
-        <div class="exp-org">Jilin University Driverless Formula Racing Team (吉智无人驾驶方程式赛车队)</div>
+        <div class="exp-org"><img class="logo" src="assets/logos/racing-team.svg" alt="">Jilin University Driverless Formula Racing Team (吉智无人驾驶方程式赛车队)</div>
         <ul class="exp-detail">
           <li>Built the planning &amp; control stack on <b>Linux + ROS2</b>: cone detections, vehicle pose and speed in; local trajectory and steering / longitudinal control out; RViz visualization of path, control state and debug info.</li>
           <li>Track topology from <b>Delaunay triangulation</b> with midline extraction; cubic <b>B-Spline</b> interpolation and arc-length resampling for continuous, differentiable local reference trajectories.</li>
@@ -458,6 +474,11 @@
           <li>Real-vehicle integration and track testing; improved trajectory continuity and control stability for sparse cones, sharp curves and path jumps.</li>
           <li>🏆 <b>2024 &amp; 2023 China Student Driverless Formula Competition (FSAC) — National Second Prize</b>.</li>
         </ul>
+        <!-- ✏️ 车队照片:同名替换 assets/photos/team-1.jpg、team-2.jpg;想加更多就再复制一行 <img> -->
+        <div class="exp-photos">
+          <img src="assets/photos/team-1.svg" alt="FSAC driverless formula car — placeholder, replace with a real photo">
+          <img src="assets/photos/team-2.svg" alt="Track testing — placeholder, replace with a real photo">
+        </div>
       </div>
     </article>
 

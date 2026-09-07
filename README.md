@@ -3,7 +3,7 @@
 姜京浩的学术个人主页:**单文件、零依赖、零构建**,推送即自动部署到 GitHub Pages。
 
 - 所有页面内容都在 `index.html` 一个文件里,改完推送 1~2 分钟自动上线
-- 纯 HTML + CSS(无框架无构建),自带吸顶导航、经历时间轴、获奖分组、深色模式、手机适配
+- 纯 HTML + CSS(无框架无构建),自带吸顶导航、经历时间轴、机构 Logo、车队照片位、获奖分组、深色模式、手机适配
 - 全站资源用**相对路径**引用,不管仓库名是 `用户名.github.io` 还是别的名字都能直接跑
 
 ## 目录结构
@@ -15,7 +15,11 @@
 │   ├── avatar.svg              # 头像占位图 → 换成你的 avatar.jpg
 │   ├── banner.svg              # About 头部背景图 → 可换成你的照片
 │   ├── cv.pdf                  # 对外发布的简历(CV 按钮指向它)
-│   └── teaser-placeholder.svg  # 论文缩略图占位(暂未用到)
+│   ├── teaser-placeholder.svg  # 论文缩略图占位(以后发论文用)
+│   ├── logos/                  # 机构 logo 占位 → 同名替换成真 logo
+│   │   ├── tongji.svg / jlu.svg / horizon.svg / schaeffler.svg / racing-team.svg
+│   └── photos/
+│       └── team-1.svg / team-2.svg  # 车队照片占位 → 同名替换成真照片
 ├── .github/workflows/deploy.yml  # GitHub Actions:push 到 main 自动部署
 ├── .nojekyll                   # 告诉 GitHub Pages 跳过 Jekyll 处理
 ├── .gitignore                  # 忽略 .DS_Store、简历原件等
@@ -32,6 +36,24 @@ python3 -m http.server 8000
 
 (直接双击 `index.html` 也能看,但起本地服务和线上一致。)
 
+## 图片清单(要加哪些图、放哪、多大)
+
+页面里已经埋好了所有图片位并放了占位图,**把真图按下面的文件名替换即可,不用改代码**(若用 .png/.jpg 后缀,把 `index.html` 里对应 `src` 的后缀同步改一下):
+
+| 替换这个文件 | 显示在哪 | 建议规格 |
+|---|---|---|
+| `assets/avatar.jpg` | About 头像 | 方形 ≥600×600,清晰正面照 |
+| `assets/banner.jpg` | About 背景横幅(文字是白色) | 横图 ≥1600×600,深色调/暗角更配 |
+| `assets/logos/tongji.svg` | 同济条目 · 机构名前(高 20px) | **透明底**,宽 ≥160px(svg 最优,或透明 png) |
+| `assets/logos/jlu.svg` | 吉大条目 · 机构名前 | 同上 |
+| `assets/logos/horizon.svg` | 地平线条目 · 机构名前 | 同上 |
+| `assets/logos/schaeffler.svg` | 舍弗勒条目 · 机构名前 | 同上 |
+| `assets/logos/racing-team.svg` | 车队条目 · 机构名前 | 同上(队徽) |
+| `assets/photos/team-1.jpg`、`team-2.jpg` | 车队卡片照片位(大图,双图并排) | 横图 ≥1200×800(赛车/赛场/实车调试);想放 3~4 张就复制一行 `<img>` |
+| `assets/teaser/*.jpg`(以后) | 论文缩略图(180px,发论文时加) | 360×240 左右 |
+
+> 深色模式下 logo 会自动加白色小圆底保证可见;如果 logo 本身是白色版,告诉我可以把白底去掉。
+
 ## 怎么更新内容(日常维护)
 
 打开 `index.html`,顶部有一段"修改指南"注释,对应关系:
@@ -42,8 +64,7 @@ python3 -m http.server 8000
 | 加论文/专利 | 在 Publications & Patents 里复制一个 `<article class="paper">...</article>` 整块 |
 | 加经历 | 复制一个 `<article class="exp-item">...</article>` 整块;时间轴上再复制一个 `<a class="tl-seg">` 并按公式改 `left/width` 百分比(公式写在时间轴代码的注释里) |
 | 加获奖 | Awards 板块里:分组标题直接改文字,加一条 = 复制一行 `<li>`,新的放最上面;不要的分组连标题一起删 |
-| 头像 | 照片存为 `assets/avatar.jpg`,把 `<img class="avatar">` 的 `avatar.svg` 改成 `avatar.jpg` |
-| 背景横幅 | 替换 `assets/banner.svg`(或改 `banner.jpg` 并更新 CSS 里 `.hero` 的 `url(...)`);图上文字是白色,图太亮就调大遮罩透明度 |
+| 图片 | 见上方「图片清单」,同名替换 assets 下文件 |
 | 社交链接 | GitHub / Google Scholar 的 `<a>` 已注释好,填入 ID 取消注释即可 |
 | 调导航栏 | 编辑 `<nav class="nav">` 里的 `<a>`,`href="#xxx"` 对应各板块 `id`;删板块时记得同步删链接 |
 | 简历更新 | 用新简历覆盖 `assets/cv.pdf`(文件名保持 `cv.pdf`) |
@@ -69,7 +90,7 @@ git push -u origin main
 
 然后到仓库 **Actions** 标签页看 "Deploy to GitHub Pages" 跑完(约 1 分钟),网址就生效了。
 
-> 如果是用 SSH 推送报权限错误:先在 GitHub 配置 SSH key,或改用 HTTPS 地址 + Personal Access Token。
+> SSH 推送:本机已配置走 443 端口的备用通道(22 端口超时时依然可用);前提是把 `~/.ssh/id_rsa.pub` 的公钥添加到 GitHub → Settings → SSH and GPG keys。或者改用 HTTPS 地址 + Personal Access Token。
 
 ## 日常发布
 
