@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- ✏️ 修改:搜索 "Jinghao Jiang" 可全局改名;改 <title> 和 description -->
+  <title>Jinghao Jiang</title>
+  <meta name="description" content="Personal homepage of Jinghao Jiang, M.S. student at Tongji University working on autonomous driving AI, VLM and edge-AI model deployment.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #222222;
+      --muted: #666666;
+      --link: #1772d0;
+      --hover: #f5f7f9;
+      --border: #eaecef;
+      --venue: #a12a2a;
+      --edu: #159a8c;
+      --int: #3b82d6;
+      --team: #d9922b;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1a1c1e;
+        --text: #e2e4e6;
+        --muted: #9aa0a6;
+        --link: #6cb2f5;
+        --hover: #26292c;
+        --border: #34383c;
+        --venue: #e58a86;
+        --edu: #2fb3a3;
+        --int: #6aa5e8;
+        --team: #e8b45a;
+      }
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--text);
+      background: var(--bg);
+      margin: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+    .container { max-width: 880px; margin: 0 auto; padding: 0 24px 64px; }
+
+    /* ── 吸顶导航 ─────────────────────────────── */
+    .nav {
+      position: sticky; top: 0; z-index: 50;
+      margin: 0 -24px 26px; padding: 9px 18px;
+      display: flex; gap: 4px; overflow-x: auto;
+      background: rgba(255, 255, 255, 0.82);
+      -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      scrollbar-width: none;
+    }
+    .nav::-webkit-scrollbar { display: none; }
+    .nav a {
+      flex-shrink: 0; padding: 3px 12px; border-radius: 999px;
+      color: var(--muted); font-size: 0.9rem; text-decoration: none;
+    }
+    .nav a:hover { color: var(--link); background: var(--hover); text-decoration: none; }
+
+    /* ── About 头部:背景横幅铺在内容后面 ─────── */
+    .hero {
+      padding: 32px;
+      border-radius: 16px;
+      margin-bottom: 6px;
+      background-image:
+        linear-gradient(115deg, rgba(6, 16, 30, 0.66), rgba(6, 16, 30, 0.30)),
+        url("assets/banner.svg");
+      background-size: cover;
+      background-position: center;
+      color: #f2f5f8;
+    }
+    .hero h1 { color: #ffffff; }
+    .hero .tagline { color: rgba(255, 255, 255, 0.72); }
+    .hero .tagline a { color: #8fd8cc; }
+    .hero p { color: rgba(255, 255, 255, 0.88); }
+    .hero .links a {
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.38);
+    }
+    .hero .links a:hover { background: rgba(255, 255, 255, 0.14); }
+    .hero, section { scroll-margin-top: 58px; }
+
+    /* ── 顶部个人信息 ─────────────────────────── */
+    .profile { display: flex; gap: 36px; align-items: flex-start; flex-wrap: wrap; }
+    .profile img.avatar {
+      width: 230px; max-width: 100%;
+      border-radius: 12px;
+      flex-shrink: 0;
+    }
+    .profile h1 { font-size: 2.1rem; line-height: 1.2; margin: 0 0 6px; font-weight: 700; letter-spacing: -0.01em; }
+    .tagline { color: var(--muted); margin: 0 0 16px; }
+    .links a {
+      display: inline-block;
+      padding: 3px 12px;
+      margin: 0 6px 8px 0;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--link);
+      text-decoration: none;
+      font-size: 0.92rem;
+    }
+    .links a:hover { background: var(--hover); }
+
+    /* ── 各个板块 ─────────────────────────────── */
+    h2 {
+      font-size: 1.35rem;
+      margin: 2.75rem 0 1rem;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+      font-weight: 700;
+    }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .news ul { list-style: none; margin: 0; padding: 0; }
+    .news li { margin-bottom: 6px; padding-left: 0; }
+    .news .date { color: var(--muted); font-variant-numeric: tabular-nums; margin-right: 8px; }
+
+    /* ── 论文条目 ─────────────────────────────── */
+    .paper {
+      display: flex;
+      gap: 20px;
+      padding: 14px 12px;
+      margin: 0 -12px;
+      border-radius: 12px;
+      transition: background 0.15s ease;
+    }
+    .paper:hover { background: var(--hover); }
+    .paper + .paper { margin-top: 6px; }
+    .paper img.thumb {
+      width: 180px;
+      flex-shrink: 0;
+      border-radius: 8px;
+      align-self: flex-start;
+    }
+    .paper .title { font-weight: 600; font-size: 1.05rem; }
+    .paper .authors { margin: 2px 0; }
+    .paper .venue { color: var(--venue); font-weight: 600; }
+    .badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 1px 9px;
+      margin-left: 6px;
+      border-radius: 999px;
+      background: rgba(255, 200, 60, 0.25);
+      border: 1px solid rgba(200, 150, 30, 0.35);
+      color: var(--venue);
+      vertical-align: 2px;
+    }
+    .paper-links a {
+      display: inline-block;
+      padding: 1px 10px;
+      margin: 4px 6px 0 0;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 0.85rem;
+    }
+    .paper-links a:hover { background: var(--bg); text-decoration: none; }
+
+    /* ── Experience + 时间轴 ──────────────────── */
+    .tl-wrap { overflow-x: auto; margin: 6px 0 10px; padding-bottom: 2px; }
+    .tl { min-width: 680px; display: grid; grid-template-columns: 92px 1fr; row-gap: 8px; align-items: center; padding-top: 30px; }
+    .tl-years { grid-column: 2; position: relative; height: 16px; }
+    .tl-years span { position: absolute; top: 0; transform: translateX(-50%); font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
+    .tl-years span:first-child { transform: none; }
+    .tl-rowlabel { grid-column: 1; font-size: 12px; color: var(--muted); line-height: 1.35; }
+    .tl-lane { grid-column: 2; position: relative; height: 24px; background: var(--hover); border-radius: 999px; }
+    .tl-seg {
+      position: absolute; top: 0; height: 100%;
+      display: flex; align-items: center; padding: 0 10px;
+      border-radius: 999px; color: #fff; font-size: 11.5px; font-weight: 600;
+      text-decoration: none; white-space: nowrap; overflow: hidden;
+      transition: filter 0.12s ease;
+    }
+    .tl-seg:hover { text-decoration: none; filter: brightness(1.12); }
+    .tl-seg span { overflow: hidden; text-overflow: ellipsis; }
+    .seg-edu { background: var(--edu); }
+    .seg-int { background: var(--int); }
+    .seg-team { background: var(--team); }
+    .tl-seg::after {
+      content: attr(data-tip);
+      position: absolute; bottom: calc(100% + 7px); left: 50%; transform: translateX(-50%);
+      background: var(--text); color: var(--bg);
+      font-size: 11px; font-weight: 500; padding: 4px 9px; border-radius: 6px;
+      white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.12s; z-index: 5;
+    }
+    .tl-seg:hover::after { opacity: 1; }
+    .tl-seg.tip-start::after { left: 0; transform: none; }
+    .tl-seg.tip-end::after { left: auto; right: 0; transform: none; }
+
+    .exp-item { display: grid; grid-template-columns: 150px 1fr; gap: 18px; padding: 18px 12px; margin: 0 -12px; border-radius: 12px; scroll-margin-top: 16px; transition: background 0.15s ease; }
+    .exp-item:hover { background: var(--hover); }
+    .exp-date { color: var(--muted); font-size: 0.9rem; font-variant-numeric: tabular-nums; padding-top: 3px; }
+    .exp-head { font-weight: 600; font-size: 1.02rem; }
+    .exp-org { margin: 1px 0 4px; }
+    .exp-org .loc { color: var(--muted); font-size: 0.92rem; }
+    .exp-type { display: inline-block; font-size: 0.72rem; font-weight: 600; padding: 1px 9px; border-radius: 999px; margin-left: 8px; vertical-align: 1px; }
+    .exp-type.edu { background: rgba(21, 154, 140, 0.15); color: #108477; }
+    .exp-type.int { background: rgba(59, 130, 214, 0.15); color: #2f6fc4; }
+    .exp-type.team { background: rgba(217, 146, 43, 0.15); color: #a5691a; }
+    .exp-project { display: inline-block; font-size: 0.82rem; padding: 1px 10px; margin: 2px 0 4px; border: 1px solid var(--border); border-radius: 999px; }
+    .exp-detail { margin: 4px 0 0; padding-left: 18px; }
+    .exp-detail li { margin-bottom: 2px; font-size: 0.95rem; }
+    .exp-desc { margin: 6px 0 0; font-size: 0.95rem; }
+    .exp-meta { color: var(--muted); font-size: 0.9rem; margin-top: 8px; }
+    @media (prefers-color-scheme: dark) {
+      .nav { background: rgba(26, 28, 30, 0.82); }
+      .exp-type.edu { color: #4fd0bf; }
+      .exp-type.int { color: #8abaf5; }
+      .exp-type.team { color: #f0b45a; }
+    }
+
+    /* ── Awards(获奖,分组展示) ──────────────── */
+    .award-group-title {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin: 18px 0 4px;
+    }
+    .awards ul { list-style: none; margin: 0; padding: 0; }
+    .awards li { padding: 3px 10px; margin: 0 -10px 2px; border-radius: 8px; }
+    .awards li:hover { background: var(--hover); }
+    .awards .date { color: var(--muted); font-variant-numeric: tabular-nums; display: inline-block; min-width: 52px; }
+
+    /* ── 页脚 ─────────────────────────────────── */
+    footer {
+      margin-top: 4rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    /* ── 手机适配 ─────────────────────────────── */
+    @media (max-width: 680px) {
+      .profile img.avatar { width: 160px; }
+      .paper { flex-direction: column; gap: 10px; }
+      .paper img.thumb { width: 100%; max-width: 320px; }
+      .hero { padding: 20px; }
+      .exp-item { grid-template-columns: 1fr; gap: 4px; }
+      .exp-date { padding-top: 0; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ══════════════════ ✏️ 修改指南(改完可删掉本注释) ══════════════════
+       1. 换头像:  用你的照片替换 assets/avatar.jpg (并把下面 src 里的 avatar.svg 改成 avatar.jpg)
+       2. 加论文:  复制一个 <article class="paper">...</article> 整块, 改内容即可
+       3. 加新闻:  复制一行 <li>, 日期新的放最上面
+       4. 不想要的板块: 整个 <section> 删掉即可
+       5. 顶部导航: 改 <nav class="nav"> 里的 <a> 文案与顺序, href="#xxx" 对应各板块的 id
+       6. 背景横幅: About 头部的背景图 —— 用你的图替换 assets/banner.svg (或改用 banner.jpg 并更新 CSS 里 .hero 的 url)
+       7. 获奖板块: Awards 里按分组改标题、复制 <li> 即可
+       8. 社交链接: 把 GitHub / Google Scholar 的注释行取消注释并填入你的 ID
+  ══════════════════════════════════════════════════════════════════════ -->
+
+  <!-- ── 顶部导航(锚点索引,滚动时吸顶) ── -->
+  <nav class="nav">
+    <a href="#about">👤 About</a>
+    <a href="#news">🔥 News</a>
+    <a href="#pubs">📝 Publications</a>
+    <a href="#exp">🧭 Experience</a>
+    <a href="#projects">🔬 Projects</a>
+    <a href="#awards">🏆 Awards</a>
+  </nav>
+
+  <!-- ── About 头部:背景横幅铺在下面,头像/名字/简介叠在图上 ── -->
+  <!-- ✏️ 换背景:替换 assets/banner.svg(或改用 banner.jpg 并更新 CSS 里 .hero 的 url) -->
+  <div class="hero" id="about">
+  <header class="profile">
+    <!-- ✏️ 修改:换成你的照片 -->
+    <img class="avatar" src="assets/avatar.svg" alt="avatar photo">
+
+    <div class="intro">
+      <h1>Jinghao Jiang <span style="font-size: 1.2rem; font-weight: 500;">姜京浩</span></h1>
+      <p class="tagline">
+        M.S. student @ <a href="https://www.tongji.edu.cn/" target="_blank">Tongji University</a> ·
+        Autonomous Driving AI &amp; Edge AI
+      </p>
+
+      <!-- ✏️ 修改:GitHub / Google Scholar 拿到 ID 后取消注释并填入 -->
+      <div class="links">
+        <a href="mailto:15864216991@163.com" title="Email">✉️ Email</a>
+        <!-- <a href="https://scholar.google.com/citations?user=YOUR_SCHOLAR_ID" target="_blank">🎓 Google Scholar</a> -->
+        <!-- <a href="https://github.com/YOUR_GITHUB_ID" target="_blank">🐙 GitHub</a> -->
+        <a href="assets/cv.pdf" target="_blank">📄 CV</a>
+      </div>
+
+      <p>
+        I am a M.S. student in Vehicle Engineering (Automotive Electronics) at
+        <b>Tongji University</b>. My research focuses on <b>deep-learning-based battery
+        SOH / SOC estimation</b> and <b>edge-AI model compression &amp; deployment</b>.
+        I have interned at <b>Horizon Robotics</b> (autonomous-driving planning &amp; control,
+        multimodal / VLM algorithms) and <b>Schaeffler · Vitesco</b> (embedded software),
+        and served as planning &amp; control lead of a driverless Formula Student team,
+        winning national second prizes in 2023 and 2024. I received my B.Eng from
+        <b>Jilin University</b> in 2025 (rank 3/64, top 5%).
+      </p>
+    </div>
+  </header>
+  </div><!-- /hero -->
+
+  <!-- ── News ── -->
+  <section class="news" id="news">
+    <h2>🔥 News</h2>
+    <ul>
+      <!-- ✏️ 修改:新消息加在最上面 -->
+      <li><span class="date">2026-06</span>Joined <b>Horizon Robotics</b> as an autonomous-driving planning &amp; control / multimodal algorithm intern.</li>
+      <li><span class="date">2025-09</span>Started my M.S. in Vehicle Engineering at <b>Tongji University</b>.</li>
+      <li><span class="date">2025</span>Our conference paper on edge-AI battery SOH estimation was accepted by <b>CEVVE</b> (oral presentation).</li>
+      <li><span class="date">2024-11</span>🏆 <b>FSAC</b> China Student Driverless Formula Competition — National Second Prize.</li>
+      <li><span class="date">2024</span>Invention patent on LSTM-based vehicle load estimation was filed/granted.</li>
+    </ul>
+  </section>
+
+  <!-- ── Publications & Patents ── -->
+  <section class="pubs" id="pubs">
+    <h2>📝 Publications &amp; Patents</h2>
+
+    <!-- ✏️ 修改:CEVVE 论文的正式题目/作者/年份请按录用通知补全 -->
+    <article class="paper">
+      <div>
+        <div class="title">Battery SOH Estimation with Lightweight Deep Learning and On-MCU Deployment <span style="color: var(--muted); font-weight: 500;">(title TBD)</span></div>
+        <div class="authors">Jinghao Jiang, et al.</div>
+        <div class="venue">CEVVE 2025 <span class="badge">Oral</span></div>
+      </div>
+    </article>
+
+    <!-- ✏️ 修改:专利发明人名单请按证书补全 -->
+    <article class="paper">
+      <div>
+        <div class="title">一种基于LSTM神经网络的汽车载重估计方法 <span style="color: var(--muted); font-weight: 500;">(Invention Patent: LSTM-based Vehicle Load Estimation Method)</span></div>
+        <div class="authors">Jinghao Jiang, et al.</div>
+        <div class="venue">Chinese Invention Patent · 2024</div>
+      </div>
+    </article>
+  </section>
+
+  <!-- ── Experience(时间轴 + 详细经历) ── -->
+  <section class="exp" id="exp">
+    <h2>🧭 Experience</h2>
+
+    <!-- ✏️ 时间轴换算:以 2021.09 为 0%、2028.03 为 100%(共 78 个月)。
+         left = (起始月 − 2021.09) / 78,width = (结束月 − 起始月) / 78。
+         悬停显示详情,点击跳到下方对应条目;新增经历复制一个 <a class="tl-seg"> 即可。 -->
+    <div class="tl-wrap">
+      <div class="tl">
+        <div class="tl-years">
+          <span style="left:0%">2021</span>
+          <span style="left:5.13%">2022</span>
+          <span style="left:20.51%">2023</span>
+          <span style="left:35.90%">2024</span>
+          <span style="left:51.28%">2025</span>
+          <span style="left:66.67%">2026</span>
+          <span style="left:82.05%">2027</span>
+          <span style="left:97.44%">2028</span>
+        </div>
+        <div class="tl-rowlabel">🎓<br>Education</div>
+        <div class="tl-lane">
+          <a class="tl-seg seg-edu tip-start" href="#exp-jilin-beng" style="left:0%;width:57.69%" data-tip="B.Eng @ Jilin Univ. · 2021.09 – 2025.06"><span>B.Eng · Jilin Univ.</span></a>
+          <a class="tl-seg seg-edu tip-end" href="#exp-tongji-ms" style="left:61.54%;width:38.46%" data-tip="M.S. @ Tongji · 2025.09 – 2028.03 (expected)"><span>M.S. · Tongji</span></a>
+        </div>
+        <div class="tl-rowlabel">💼<br>Internship</div>
+        <div class="tl-lane">
+          <a class="tl-seg seg-int" href="#exp-schaeffler" style="left:53.85%;width:3.85%" data-tip="Schaeffler (Vitesco) · 2025.03 – 2025.06" aria-label="Schaeffler Vitesco, 2025.03 to 2025.06"></a>
+          <a class="tl-seg seg-int tip-end" href="#exp-horizon" style="left:73.08%;width:26.92%" data-tip="Horizon Robotics · 2026.06 – Present"><span>Horizon Robotics</span></a>
+        </div>
+        <div class="tl-rowlabel">🏎<br>Team</div>
+        <div class="tl-lane">
+          <a class="tl-seg seg-team" href="#exp-team" style="left:17.95%;width:30.77%" data-tip="Driverless Formula Team, P&amp;C Lead · 2022.11 – 2024.11"><span>Formula Student Driverless</span></a>
+        </div>
+      </div>
+    </div>
+    <p class="tagline" style="margin: 0 0 14px;">Hover / tap the bars for details — click to jump to the entry below.</p>
+
+    <!-- ✏️ 加新经历:复制一个 <article class="exp-item"> 整块 -->
+    <article class="exp-item" id="exp-horizon">
+      <div class="exp-date">Jun 2026 – Present</div>
+      <div>
+        <div class="exp-head">Autonomous Driving Planning &amp; Control / Multimodal Algorithm Intern <span class="exp-type int">Internship</span></div>
+        <div class="exp-org"><a href="https://horizonrobotics.ai" target="_blank">Horizon Robotics</a> <span class="loc">· Beijing, China</span></div>
+        <ul class="exp-detail">
+          <li>Development, iteration and validation of end-to-end planning &amp; control models and VLM scene-mining models: expert pos/neg data construction, loss design, training, visualization debugging and generalization experiments.</li>
+          <li>Hard-case data for navigation lane-change game, pre-intersection lane selection and ramp merging; gradient re-weighting of navigation lane-change samples by remaining count to improve urgency representation.</li>
+          <li>Designed a lateral channel loss with scenario-differentiated weights (2× for low-speed creep lane-change) to mitigate lateral wobble and unreasonable lane changes.</li>
+          <li>Added <b>navipath / bev-prompt</b> navigation guidance heads (implicit guidance + navigation loss + explicit guidance): improved ramp lane-change timing and pre-intersection selection accuracy, reduced yaw rate on special lanes.</li>
+          <li>Built pure-VLM and Rule-based + VLM hybrid scene-mining operators for long-tail planning scenes; up to <b>93.33% precision</b>, <b>23k+</b> valid training samples mined; VLM inference/eval pipeline optimized with LMDeploy; key precision/recall improved <b>15%</b> via badcase analysis.</li>
+          <li>Fine-tuned and deployed <b>InternVL3 / Qwen3-VL</b> with ms-swift; cleaned &amp; QC'd 5000+ labeled samples into ShareGPT training sets; navigation scene recognition accuracy <b>+12%</b> via prompt and inference-config optimization.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="exp-item" id="exp-schaeffler">
+      <div class="exp-date">Mar 2025 – Jun 2025</div>
+      <div>
+        <div class="exp-head">Embedded Software Intern <span class="exp-type int">Internship</span></div>
+        <div class="exp-org"><a href="https://www.schaeffler.com" target="_blank">Schaeffler (Vitesco Technologies)</a> <span class="loc">· China</span></div>
+        <ul class="exp-detail">
+          <li>CAN bus communication testing; developed CAPL scripts on <b>Vector CANoe</b> for automated message parsing.</li>
+          <li>Optimized the log-analysis workflow; located and fixed 2 intermittent bus communication issues.</li>
+          <li>Static code analysis with <b>PC-LINT / Axivion</b> following MISRA C++ 2012; personal code defect rate below team average.</li>
+          <li>Implemented power-on initialization and core features for the NXP BMA6402 chip; participated in CDD driver debugging.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="exp-item" id="exp-team">
+      <div class="exp-date">Nov 2022 – Nov 2024</div>
+      <div>
+        <div class="exp-head">Planning &amp; Control Lead, Driverless Formula Racing Team <span class="exp-type team">Team</span></div>
+        <div class="exp-org">Jilin University Driverless Formula Racing Team (吉智无人驾驶方程式赛车队)</div>
+        <ul class="exp-detail">
+          <li>Built the planning &amp; control stack on <b>Linux + ROS2</b>: cone detections, vehicle pose and speed in; local trajectory and steering / longitudinal control out; RViz visualization of path, control state and debug info.</li>
+          <li>Track topology from <b>Delaunay triangulation</b> with midline extraction; cubic <b>B-Spline</b> interpolation and arc-length resampling for continuous, differentiable local reference trajectories.</li>
+          <li>Min-curvature trajectory optimization under track-boundary constraints; speed profile from path curvature and lateral-acceleration limits for corner pre-braking and straight-line acceleration.</li>
+          <li>Designed an <b>NMPC</b> path-tracking controller on a kinematic bicycle model, jointly optimizing lateral / heading / speed error and control smoothness under steering, steering-rate, acceleration and boundary constraints.</li>
+          <li>Real-vehicle integration and track testing; improved trajectory continuity and control stability for sparse cones, sharp curves and path jumps.</li>
+          <li>🏆 <b>2024 &amp; 2023 China Student Driverless Formula Competition (FSAC) — National Second Prize</b>.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="exp-item" id="exp-tongji-ms">
+      <div class="exp-date">Sep 2025 – Mar 2028<br>(Expected)</div>
+      <div>
+        <div class="exp-head">M.S. Student in Vehicle Engineering (Automotive Electronics) <span class="exp-type edu">Education</span></div>
+        <div class="exp-org"><a href="https://www.tongji.edu.cn/" target="_blank">Tongji University</a> <span class="loc">· Shanghai, China</span></div>
+        <p class="exp-desc">
+          Research on <b>deep-learning-based battery SOH / SOC prediction</b> and
+          <b>edge-AI model compression &amp; deployment</b>.
+          Keywords: Deep Learning / Transformer / Time Series Modeling / Edge AI / Model Compression.
+        </p>
+        <!-- ✏️ 导师信息简历未列,需要展示时补在这里:
+        <div class="exp-meta">Supervisor: Prof. XXX</div>
+        -->
+      </div>
+    </article>
+
+    <article class="exp-item" id="exp-jilin-beng">
+      <div class="exp-date">Sep 2021 – Jun 2025</div>
+      <div>
+        <div class="exp-head">B.Eng. Student in Automotive Service Engineering <span class="exp-type edu">Education</span></div>
+        <div class="exp-org"><a href="https://www.jlu.edu.cn/" target="_blank">Jilin University</a> <span class="loc">· Changchun, China</span></div>
+        <p class="exp-desc">
+          Major rank <b>3/64 (top 5%)</b>. Coursework: computer science fundamentals, Python,
+          control engineering, sensing technology, vehicle theory, automotive networks,
+          C/C++, digital / analog circuits.
+        </p>
+      </div>
+    </article>
+  </section>
+
+  <!-- ── Projects(项目与科研) ── -->
+  <section class="projects" id="projects">
+    <h2>🔬 Projects</h2>
+
+    <!-- ✏️ 加新项目:复制一个 <article class="exp-item"> 整块 -->
+    <article class="exp-item">
+      <div class="exp-date">May 2025 – Present</div>
+      <div>
+        <div class="exp-head">Lightweight Transformer for Battery SOC Estimation on Edge BMS</div>
+        <ul class="exp-detail">
+          <li>Built SOC estimation samples from the public Lishen 18650 dataset: normalized voltage / current / temperature, sliding-window multivariate time-series inputs with window-end SOC labels.</li>
+          <li>Designed a <b>Transformer Encoder</b> SOC regression model with positional encoding; Multi-Head Self-Attention captures voltage recovery, current fluctuation and temperature relations across time steps.</li>
+          <li>Knowledge distillation: full encoder as teacher, lightweight student with fewer layers / hidden dims, aligned via prediction distillation and intermediate-feature matching.</li>
+          <li>FP32 inference verification and <b>INT8 quantization</b> with ONNX Runtime: model size, accuracy and CPU-side latency evaluation.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="exp-item">
+      <div class="exp-date">Dec 2024 – May 2025</div>
+      <div>
+        <div class="exp-head">Edge-AI Battery SOH Estimation &amp; MCU Deployment</div>
+        <ul class="exp-detail">
+          <li>Extracted CC / CV charging-curve health features from the XJTU battery dataset with feature engineering and dimensionality analysis.</li>
+          <li>Built an <b>LSTM</b> time-series forecasting model with Bayesian-optimized hyperparameter search.</li>
+          <li>ONNX conversion and deployment to <b>STM32H743</b> via X-CUBE-AI; embedded performance evaluation of latency, memory footprint and deployability.</li>
+          <li>🏆 Accepted at <b>CEVVE</b> with an oral presentation.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="exp-item">
+      <div class="exp-date">May 2023 – May 2024</div>
+      <div>
+        <div class="exp-head">LSTM-based Vehicle Load Estimation (Invention Patent)</div>
+        <ul class="exp-detail">
+          <li>Built an LSTM-based vehicle load prediction model covering data processing, training and experimental validation.</li>
+          <li>🏆 Invention patent: 《一种基于LSTM神经网络的汽车载重估计方法》.</li>
+        </ul>
+      </div>
+    </article>
+  </section>
+
+  <!-- ── Awards(获奖及荣誉,分组展示) ── -->
+  <section class="awards" id="awards">
+    <h2>🏆 Awards &amp; Honors</h2>
+
+    <!-- ✏️ 修改:分组标题直接改文字;加一条 = 复制一行 <li>,新的放最上面;不要的分组连标题一起删掉 -->
+    <div class="award-group-title">Competitions · 竞赛获奖</div>
+    <ul>
+      <li><span class="date">2025</span>3rd Energy Electronics Industry Innovation Competition — National Second Prize</li>
+      <li><span class="date">2024</span>China Student Driverless Formula Competition (FSAC) — National Second Prize</li>
+      <li><span class="date">2023</span>China Student Driverless Formula Competition (FSAC) — National Second Prize</li>
+      <li><span class="date">2022</span>National College Student Mathematics Competition — Provincial Third Prize</li>
+    </ul>
+
+    <div class="award-group-title">Scholarships · 奖学金</div>
+    <ul>
+      <li><span class="date">2024</span>University Second-Class Scholarship</li>
+      <li><span class="date">2023</span>National Encouragement Scholarship</li>
+    </ul>
+
+    <div class="award-group-title">Honors · 荣誉称号</div>
+    <ul>
+      <li><span class="date">2025</span>Outstanding Graduate of the School</li>
+      <li><span class="date">—</span>Multiple Outstanding Student honors (school &amp; college level)</li>
+    </ul>
+  </section>
+
+  <footer>
+    <!-- ✏️ 修改:更新时间自己维护一下 -->
+    Last updated: 2026-09 · Built with plain HTML, no framework.
+  </footer>
+
+</div>
+</body>
+</html>

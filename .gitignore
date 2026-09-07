@@ -1,0 +1,13 @@
+# macOS / 系统
+.DS_Store
+Thumbs.db
+
+# 日志与临时文件
+*.log
+*.tmp
+
+# 本地依赖目录(如以后引入工具)
+node_modules/
+
+# 根目录的简历原件(对外只发布 assets/cv.pdf)
+姜京浩CV (1).pdf
