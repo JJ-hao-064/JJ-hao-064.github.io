@@ -203,10 +203,10 @@
     .exp-org { margin: 1px 0 4px; }
     .exp-org .loc { color: var(--muted); font-size: 0.92rem; }
     .exp-org .logo {
-      height: 20px; width: auto;
-      vertical-align: -5px;
+      height: 22px; width: auto;
+      vertical-align: -6px;
       margin-right: 8px;
-      border-radius: 4px;
+      border-radius: 5px;
     }
     .exp-type { display: inline-block; font-size: 0.72rem; font-weight: 600; padding: 1px 9px; border-radius: 999px; margin-left: 8px; vertical-align: 1px; }
     .exp-type.edu { background: rgba(21, 154, 140, 0.15); color: #108477; }
@@ -217,12 +217,19 @@
     .exp-detail li { margin-bottom: 2px; font-size: 0.95rem; }
     .exp-desc { margin: 6px 0 0; font-size: 0.95rem; }
     .exp-meta { color: var(--muted); font-size: 0.9rem; margin-top: 8px; }
-    .exp-photos { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 12px; }
+    .exp-photos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
     .exp-photos img {
-      flex: 1 1 240px;
-      max-width: 360px;
       width: 100%;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
       border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--hover);
     }
     @media (prefers-color-scheme: dark) {
       .nav { background: rgba(26, 28, 30, 0.82); }
