@@ -3,9 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- ✏️ 修改:搜索 "Jinghao Jiang" 可全局改名;改 <title> 和 description -->
   <title>Jinghao Jiang</title>
   <meta name="description" content="Personal homepage of Jinghao Jiang, M.S. student at Tongji University working on autonomous driving AI, VLM and edge-AI model deployment.">
+  <meta name="keywords" content="Jinghao Jiang, 姜京浩, Tongji University, Autonomous Driving, VLM, Edge AI, Battery SOH, SOC, Model Compression">
+  <meta name="author" content="Jinghao Jiang">
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:title" content="Jinghao Jiang">
+  <meta property="og:description" content="M.S. student at Tongji University — autonomous driving AI, VLM and edge-AI model deployment.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/avatar.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Jinghao Jiang">
+  <meta name="twitter:description" content="M.S. student at Tongji University — autonomous driving AI, VLM and edge-AI.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
   <style>
     :root {
@@ -64,27 +73,8 @@
     }
     .nav a:hover { color: var(--link); background: var(--hover); text-decoration: none; }
 
-    /* ── About 头部:背景横幅铺在内容后面 ─────── */
-    .hero {
-      padding: 32px;
-      border-radius: 16px;
-      margin-bottom: 6px;
-      background-image:
-        linear-gradient(115deg, rgba(6, 16, 30, 0.66), rgba(6, 16, 30, 0.30)),
-        url("assets/banner.svg");
-      background-size: cover;
-      background-position: center;
-      color: #f2f5f8;
-    }
-    .hero h1 { color: #ffffff; }
-    .hero .tagline { color: rgba(255, 255, 255, 0.72); }
-    .hero .tagline a { color: #8fd8cc; }
-    .hero p { color: rgba(255, 255, 255, 0.88); }
-    .hero .links a {
-      color: #ffffff;
-      border-color: rgba(255, 255, 255, 0.38);
-    }
-    .hero .links a:hover { background: rgba(255, 255, 255, 0.14); }
+    /* ── About 头部 ──────────────────────────── */
+    .hero { margin-bottom: 6px; }
     .hero, section { scroll-margin-top: 58px; }
 
     /* ── 顶部个人信息 ─────────────────────────── */
@@ -118,6 +108,7 @@
     }
     a { color: var(--link); text-decoration: none; }
     a:hover { text-decoration: underline; }
+    a:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; border-radius: 4px; }
 
     .news ul { list-style: none; margin: 0; padding: 0; }
     .news li { margin-bottom: 6px; padding-left: 0; }
@@ -267,7 +258,6 @@
       .profile img.avatar { width: 160px; }
       .paper { flex-direction: column; gap: 10px; }
       .paper img.thumb { width: 100%; max-width: 320px; }
-      .hero { padding: 20px; }
       .exp-item { grid-template-columns: 1fr; gap: 4px; }
       .exp-date { padding-top: 0; }
     }
@@ -275,19 +265,6 @@
 </head>
 <body>
 <div class="container">
-
-  <!-- ══════════════════ ✏️ 修改指南(改完可删掉本注释) ══════════════════
-       1. 换头像:  用你的照片替换 assets/avatar.jpg (并把下面 src 里的 avatar.svg 改成 avatar.jpg)
-       2. 加论文:  复制一个 <article class="paper">...</article> 整块, 改内容即可
-       3. 加新闻:  复制一行 <li>, 日期新的放最上面
-       4. 不想要的板块: 整个 <section> 删掉即可
-       5. 顶部导航: 改 <nav class="nav"> 里的 <a> 文案与顺序, href="#xxx" 对应各板块的 id
-       6. 背景横幅: About 头部的背景图 —— 用你的图替换 assets/banner.svg (或改用 banner.jpg 并更新 CSS 里 .hero 的 url)
-       7. 获奖板块: Awards 里按分组改标题、复制 <li> 即可
-       8. 社交链接: 把 GitHub / Google Scholar 的注释行取消注释并填入你的 ID
-       9. Logo/照片: 同名替换 assets/logos、assets/photos 下的占位文件即可;
-          若换成 .jpg/.png,记得把对应 <img> 的 src 后缀一起改(清单见 README)
-  ══════════════════════════════════════════════════════════════════════ -->
 
   <!-- ── 顶部导航(锚点索引,滚动时吸顶) ── -->
   <nav class="nav">
@@ -299,21 +276,18 @@
     <a href="#awards">🏆 Awards</a>
   </nav>
 
-  <!-- ── About 头部:背景横幅铺在下面,头像/名字/简介叠在图上 ── -->
-  <!-- ✏️ 换背景:替换 assets/banner.svg(或改用 banner.jpg 并更新 CSS 里 .hero 的 url) -->
+  <!-- ── About ── -->
   <div class="hero" id="about">
   <header class="profile">
-    <!-- ✏️ 修改:换成你的照片 -->
-    <img class="avatar" src="assets/avatar.svg" alt="avatar photo">
+    <img class="avatar" src="assets/avatar.svg" alt="Portrait of Jinghao Jiang">
 
     <div class="intro">
       <h1>Jinghao Jiang <span style="font-size: 1.2rem; font-weight: 500;">姜京浩</span></h1>
       <p class="tagline">
-        M.S. student @ <a href="https://www.tongji.edu.cn/" target="_blank">Tongji University</a> ·
+        M.S. student @ <a href="https://www.tongji.edu.cn/" target="_blank" rel="noopener noreferrer">Tongji University</a> ·
         Autonomous Driving AI &amp; Edge AI
       </p>
 
-      <!-- ✏️ 修改:GitHub / Google Scholar 拿到 ID 后取消注释并填入 -->
       <div class="links">
         <a href="mailto:15864216991@163.com" title="Email">✉️ Email</a>
         <!-- <a href="https://scholar.google.com/citations?user=YOUR_SCHOLAR_ID" target="_blank">🎓 Google Scholar</a> -->
@@ -339,8 +313,7 @@
   <section class="news" id="news">
     <h2>🔥 News</h2>
     <ul>
-      <!-- ✏️ 修改:新消息加在最上面 -->
-      <li><span class="date">2026-06</span>Joined <b>Horizon Robotics</b> as an autonomous-driving planning &amp; control / multimodal algorithm intern.</li>
+      <li><span class="date">2026-05</span>Joined <b>Horizon Robotics</b> as an autonomous-driving planning &amp; control / multimodal algorithm intern.</li>
       <li><span class="date">2025-09</span>Started my M.S. in Vehicle Engineering at <b>Tongji University</b>.</li>
       <li><span class="date">2025</span>Our conference paper on edge-AI battery SOH estimation was accepted by <b>CEVVE</b> (oral presentation).</li>
       <li><span class="date">2024-11</span>🏆 <b>FSAC</b> China Student Driverless Formula Competition — National Second Prize.</li>
@@ -352,7 +325,6 @@
   <section class="pubs" id="pubs">
     <h2>📝 Publications &amp; Patents</h2>
 
-    <!-- ✏️ 修改:CEVVE 论文的正式题目/作者/年份请按录用通知补全 -->
     <article class="paper">
       <div>
         <div class="title">Battery SOH Estimation with Lightweight Deep Learning and On-MCU Deployment <span style="color: var(--muted); font-weight: 500;">(title TBD)</span></div>
@@ -361,7 +333,6 @@
       </div>
     </article>
 
-    <!-- ✏️ 修改:专利发明人名单请按证书补全 -->
     <article class="paper">
       <div>
         <div class="title">一种基于LSTM神经网络的汽车载重估计方法 <span style="color: var(--muted); font-weight: 500;">(Invention Patent: LSTM-based Vehicle Load Estimation Method)</span></div>
@@ -375,61 +346,54 @@
   <section class="exp" id="exp">
     <h2>🧭 Experience</h2>
 
-    <!-- ✏️ 时间轴换算:以 2021.09 为 0%、2028.03 为 100%(共 78 个月)。
-         left = (起始月 − 2021.09) / 78,width = (结束月 − 起始月) / 78。
-         悬停显示详情,点击跳到下方对应条目;新增经历复制一个 <a class="tl-seg"> 即可。 -->
     <div class="tl-wrap">
       <div class="tl">
         <div class="tl-years">
           <span style="left:0%">2021</span>
-          <span style="left:5.13%">2022</span>
-          <span style="left:20.51%">2023</span>
-          <span style="left:35.90%">2024</span>
-          <span style="left:51.28%">2025</span>
-          <span style="left:66.67%">2026</span>
-          <span style="left:82.05%">2027</span>
-          <span style="left:97.44%">2028</span>
+          <span style="left:10%">2022</span>
+          <span style="left:21%">2023</span>
+          <span style="left:32%">2024</span>
+          <span style="left:44%">2025</span>
+          <span style="left:55%">2026</span>
+          <span style="left:67%">2027</span>
+          <span style="left:80%">2028</span>
         </div>
         <div class="tl-rowlabel">🎓<br>Education</div>
         <div class="tl-lane">
-          <a class="tl-seg seg-edu tip-start" href="#exp-jilin-beng" style="left:0%;width:57.69%" data-tip="B.Eng @ Jilin Univ. · 2021.09 – 2025.06"><span>B.Eng · Jilin Univ.</span></a>
-          <a class="tl-seg seg-edu tip-end" href="#exp-tongji-ms" style="left:61.54%;width:38.46%" data-tip="M.S. @ Tongji · 2025.09 – 2028.03 (expected)"><span>M.S. · Tongji</span></a>
+          <a class="tl-seg seg-edu tip-start" href="#exp-jilin-beng" style="left:0%;width:42%" data-tip="B.Eng @ Jilin Univ. · 2021.09 – 2025.06"><span>B.Eng · Jilin Univ.</span></a>
+          <a class="tl-seg seg-edu tip-end" href="#exp-tongji-ms" style="left:46%;width:34%" data-tip="M.S. @ Tongji Univ. · 2025.09 – 2028.03 (expected)"><span>M.S. · Tongji Univ.</span></a>
         </div>
         <div class="tl-rowlabel">💼<br>Internship</div>
         <div class="tl-lane">
-          <a class="tl-seg seg-int" href="#exp-schaeffler" style="left:53.85%;width:3.85%" data-tip="Schaeffler (Vitesco) · 2025.03 – 2025.06" aria-label="Schaeffler Vitesco, 2025.03 to 2025.06"></a>
-          <a class="tl-seg seg-int tip-end" href="#exp-horizon" style="left:73.08%;width:26.92%" data-tip="Horizon Robotics · 2026.06 – Present"><span>Horizon Robotics</span></a>
+          <a class="tl-seg seg-int" href="#exp-schaeffler" style="left:38%;width:10%" data-tip="Schaeffler (Vitesco) · 2025.03 – 2025.06" aria-label="Schaeffler Vitesco, 2025.03 to 2025.06"><span>Schaeffler</span></a>
+          <a class="tl-seg seg-int tip-end" href="#exp-horizon" style="left:54%;width:12%" data-tip="Horizon Robotics · 2026.05 – 2026.11"><span>Horizon</span></a>
         </div>
-        <div class="tl-rowlabel">🏎<br>Team</div>
+        <div class="tl-rowlabel">🏎<br>Competition</div>
         <div class="tl-lane">
-          <a class="tl-seg seg-team" href="#exp-team" style="left:17.95%;width:30.77%" data-tip="Driverless Formula Team, P&amp;C Lead · 2022.11 – 2024.11"><span>Formula Student Driverless</span></a>
+          <a class="tl-seg seg-team" href="#exp-team" style="left:9%;width:30%" data-tip="Driverless Formula Team, P&amp;C Lead · 2022.11 – 2024.11"><span>Formula Student Driverless</span></a>
         </div>
       </div>
     </div>
-    <p class="tagline" style="margin: 0 0 14px;">Hover / tap the bars for details — click to jump to the entry below.</p>
+    <p class="tagline" style="margin: 0 0 14px;">Timeline is simplified (non-linear time axis) — hover / tap the bars for exact dates.</p>
 
-    <!-- ✏️ 加新经历:复制一个 <article class="exp-item"> 整块 -->
     <article class="exp-item" id="exp-tongji-ms">
       <div class="exp-date">Sep 2025 – Mar 2028<br>(Expected)</div>
       <div>
         <div class="exp-head">M.S. Student in Vehicle Engineering (Automotive Electronics) <span class="exp-type edu">Education</span></div>
-        <div class="exp-org"><img class="logo" src="assets/logos/tongji.svg" alt=""><a href="https://www.tongji.edu.cn/" target="_blank">Tongji University</a> <span class="loc">· Shanghai, China</span></div>
+        <div class="exp-org"><img class="logo" src="assets/logos/tongji.svg" alt=""><a href="https://www.tongji.edu.cn/" target="_blank" rel="noopener noreferrer">Tongji University</a> <span class="loc">· Shanghai, China</span></div>
         <p class="exp-desc">
           Research on <b>deep-learning-based battery SOH / SOC prediction</b> and
           <b>edge-AI model compression &amp; deployment</b>.
           Keywords: Deep Learning / Transformer / Time Series Modeling / Edge AI / Model Compression.
         </p>
-        <!-- ✏️ 导师信息简历未列,需要展示时补在这里:
-        <div class="exp-meta">Supervisor: Prof. XXX</div>
-        -->
-      </div>
+        </div>
     </article>
 
     <article class="exp-item" id="exp-jilin-beng">
       <div class="exp-date">Sep 2021 – Jun 2025</div>
       <div>
         <div class="exp-head">B.Eng. Student in Automotive Service Engineering <span class="exp-type edu">Education</span></div>
-        <div class="exp-org"><img class="logo" src="assets/logos/jlu.svg" alt=""><a href="https://www.jlu.edu.cn/" target="_blank">Jilin University</a> <span class="loc">· Changchun, China</span></div>
+        <div class="exp-org"><img class="logo" src="assets/logos/jlu.svg" alt=""><a href="https://www.jlu.edu.cn/" target="_blank" rel="noopener noreferrer">Jilin University</a> <span class="loc">· Changchun, China</span></div>
         <p class="exp-desc">
           Major rank <b>3/64 (top 5%)</b>. Coursework: computer science fundamentals, Python,
           control engineering, sensing technology, vehicle theory, automotive networks,
@@ -439,10 +403,10 @@
     </article>
 
     <article class="exp-item" id="exp-horizon">
-      <div class="exp-date">Jun 2026 – Present</div>
+      <div class="exp-date">May 2026 – Nov 2026</div>
       <div>
         <div class="exp-head">Autonomous Driving Planning &amp; Control / Multimodal Algorithm Intern <span class="exp-type int">Internship</span></div>
-        <div class="exp-org"><img class="logo" src="assets/logos/horizon.svg" alt=""><a href="https://horizonrobotics.ai" target="_blank">Horizon Robotics</a> <span class="loc">· Beijing, China</span></div>
+        <div class="exp-org"><img class="logo" src="assets/logos/horizon.svg" alt=""><a href="https://horizonrobotics.ai" target="_blank" rel="noopener noreferrer">Horizon Robotics</a> <span class="loc">· Beijing, China</span></div>
         <ul class="exp-detail">
           <li>Development, iteration and validation of end-to-end planning &amp; control models and VLM scene-mining models: expert pos/neg data construction, loss design, training, visualization debugging and generalization experiments.</li>
           <li>Hard-case data for navigation lane-change game, pre-intersection lane selection and ramp merging; gradient re-weighting of navigation lane-change samples by remaining count to improve urgency representation.</li>
@@ -458,7 +422,7 @@
       <div class="exp-date">Mar 2025 – Jun 2025</div>
       <div>
         <div class="exp-head">Embedded Software Intern <span class="exp-type int">Internship</span></div>
-        <div class="exp-org"><img class="logo" src="assets/logos/schaeffler.svg" alt=""><a href="https://www.schaeffler.com" target="_blank">Schaeffler (Vitesco Technologies)</a> <span class="loc">· China</span></div>
+        <div class="exp-org"><img class="logo" src="assets/logos/schaeffler.svg" alt=""><a href="https://www.schaeffler.com" target="_blank" rel="noopener noreferrer">Schaeffler (Vitesco Technologies)</a> <span class="loc">· China</span></div>
         <ul class="exp-detail">
           <li>CAN bus communication testing; developed CAPL scripts on <b>Vector CANoe</b> for automated message parsing.</li>
           <li>Optimized the log-analysis workflow; located and fixed 2 intermittent bus communication issues.</li>
@@ -471,7 +435,7 @@
     <article class="exp-item" id="exp-team">
       <div class="exp-date">Nov 2022 – Nov 2024</div>
       <div>
-        <div class="exp-head">Planning &amp; Control Lead, Driverless Formula Racing Team <span class="exp-type team">Team</span></div>
+        <div class="exp-head">Planning &amp; Control Lead, Driverless Formula Racing Team <span class="exp-type team">Competition</span></div>
         <div class="exp-org"><img class="logo" src="assets/logos/racing-team.svg" alt="">Jilin University Driverless Formula Racing Team (吉智无人驾驶方程式赛车队)</div>
         <ul class="exp-detail">
           <li>Built the planning &amp; control stack on <b>Linux + ROS2</b>: cone detections, vehicle pose and speed in; local trajectory and steering / longitudinal control out; RViz visualization of path, control state and debug info.</li>
@@ -481,10 +445,9 @@
           <li>Real-vehicle integration and track testing; improved trajectory continuity and control stability for sparse cones, sharp curves and path jumps.</li>
           <li>🏆 <b>2024 &amp; 2023 China Student Driverless Formula Competition (FSAC) — National Second Prize</b>.</li>
         </ul>
-        <!-- ✏️ 车队照片:同名替换 assets/photos/team-1.jpg、team-2.jpg;想加更多就再复制一行 <img> -->
         <div class="exp-photos">
-          <img src="assets/photos/team-1.svg" alt="FSAC driverless formula car — placeholder, replace with a real photo">
-          <img src="assets/photos/team-2.svg" alt="Track testing — placeholder, replace with a real photo">
+          <img src="assets/photos/team-1.svg" alt="FSAC driverless formula car, Jilin University racing team">
+          <img src="assets/photos/team-2.svg" alt="Track testing with the driverless formula racing team">
         </div>
       </div>
     </article>
@@ -495,7 +458,6 @@
   <section class="projects" id="projects">
     <h2>🔬 Projects</h2>
 
-    <!-- ✏️ 加新项目:复制一个 <article class="exp-item"> 整块 -->
     <article class="exp-item">
       <div class="exp-date">May 2025 – Present</div>
       <div>
@@ -538,7 +500,6 @@
   <section class="awards" id="awards">
     <h2>🏆 Awards &amp; Honors</h2>
 
-    <!-- ✏️ 修改:分组标题直接改文字;加一条 = 复制一行 <li>,新的放最上面;不要的分组连标题一起删掉 -->
     <div class="award-group-title">Competitions · 竞赛获奖</div>
     <ul>
       <li><span class="date">2025</span>3rd Energy Electronics Industry Innovation Competition — National Second Prize</li>
@@ -561,7 +522,6 @@
   </section>
 
   <footer>
-    <!-- ✏️ 修改:更新时间自己维护一下 -->
     Last updated: 2026-09 · Built with plain HTML, no framework.
   </footer>
 
