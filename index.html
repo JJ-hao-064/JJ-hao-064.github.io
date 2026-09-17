@@ -11,7 +11,6 @@
   <meta property="og:title" content="Jinghao Jiang">
   <meta property="og:description" content="M.S. student at Tongji University — autonomous driving AI, VLM and edge-AI model deployment.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/avatar.svg">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Jinghao Jiang">
   <meta name="twitter:description" content="M.S. student at Tongji University — autonomous driving AI, VLM and edge-AI.">
@@ -79,11 +78,6 @@
 
     /* ── 顶部个人信息 ─────────────────────────── */
     .profile { display: flex; gap: 36px; align-items: flex-start; flex-wrap: wrap; }
-    .profile img.avatar {
-      width: 230px; max-width: 100%;
-      border-radius: 12px;
-      flex-shrink: 0;
-    }
     .profile h1 { font-size: 2.1rem; line-height: 1.2; margin: 0 0 6px; font-weight: 700; letter-spacing: -0.01em; }
     .tagline { color: var(--muted); margin: 0 0 16px; }
     .links a {
@@ -208,20 +202,6 @@
     .exp-detail li { margin-bottom: 2px; font-size: 0.95rem; }
     .exp-desc { margin: 6px 0 0; font-size: 0.95rem; }
     .exp-meta { color: var(--muted); font-size: 0.9rem; margin-top: 8px; }
-    .exp-photos {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 12px;
-      margin-top: 14px;
-    }
-    .exp-photos img {
-      width: 100%;
-      aspect-ratio: 3 / 2;
-      object-fit: cover;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      background: var(--hover);
-    }
     @media (prefers-color-scheme: dark) {
       .nav { background: rgba(26, 28, 30, 0.82); }
       .exp-type.edu { color: #4fd0bf; }
@@ -255,7 +235,6 @@
 
     /* ── 手机适配 ─────────────────────────────── */
     @media (max-width: 680px) {
-      .profile img.avatar { width: 160px; }
       .paper { flex-direction: column; gap: 10px; }
       .paper img.thumb { width: 100%; max-width: 320px; }
       .exp-item { grid-template-columns: 1fr; gap: 4px; }
@@ -279,8 +258,6 @@
   <!-- ── About ── -->
   <div class="hero" id="about">
   <header class="profile">
-    <img class="avatar" src="assets/avatar.svg" alt="Portrait of Jinghao Jiang">
-
     <div class="intro">
       <h1>Jinghao Jiang <span style="font-size: 1.2rem; font-weight: 500;">姜京浩</span></h1>
       <p class="tagline">
@@ -299,8 +276,7 @@
         I am a M.S. student in Vehicle Engineering (Automotive Electronics) at
         <b>Tongji University</b>. My research focuses on <b>deep-learning-based battery
         SOH / SOC estimation</b> and <b>edge-AI model compression &amp; deployment</b>.
-        I have interned at <b>Horizon Robotics</b> (autonomous-driving planning &amp; control,
-        multimodal / VLM algorithms) and <b>Schaeffler · Vitesco</b> (embedded software),
+        I have interned at <b>Horizon Robotics</b> and <b>Schaeffler · Vitesco</b> (embedded software),
         and served as planning &amp; control lead of a driverless Formula Student team,
         winning national second prizes in 2023 and 2024. I received my B.Eng from
         <b>Jilin University</b> in 2025 (rank 3/64, top 5%).
@@ -313,7 +289,7 @@
   <section class="news" id="news">
     <h2>🔥 News</h2>
     <ul>
-      <li><span class="date">2026-05</span>Joined <b>Horizon Robotics</b> as an autonomous-driving planning &amp; control / multimodal algorithm intern.</li>
+      <li><span class="date">2026-05</span>Joined <b>Horizon Robotics</b> as an algorithm intern.</li>
       <li><span class="date">2025-09</span>Started my M.S. in Vehicle Engineering at <b>Tongji University</b>.</li>
       <li><span class="date">2025</span>Our conference paper on edge-AI battery SOH estimation was accepted by <b>CEVVE</b> (oral presentation).</li>
       <li><span class="date">2024-11</span>🏆 <b>FSAC</b> China Student Driverless Formula Competition — National Second Prize.</li>
@@ -405,15 +381,11 @@
     <article class="exp-item" id="exp-horizon">
       <div class="exp-date">May 2026 – Nov 2026</div>
       <div>
-        <div class="exp-head">Autonomous Driving Planning &amp; Control / Multimodal Algorithm Intern <span class="exp-type int">Internship</span></div>
+        <div class="exp-head">Planning &amp; Control / Multimodal Algorithm Intern <span class="exp-type int">Internship</span></div>
         <div class="exp-org"><img class="logo" src="assets/logos/horizon.svg" alt=""><a href="https://horizonrobotics.ai" target="_blank" rel="noopener noreferrer">Horizon Robotics</a> <span class="loc">· Beijing, China</span></div>
         <ul class="exp-detail">
-          <li>Development, iteration and validation of end-to-end planning &amp; control models and VLM scene-mining models: expert pos/neg data construction, loss design, training, visualization debugging and generalization experiments.</li>
-          <li>Hard-case data for navigation lane-change game, pre-intersection lane selection and ramp merging; gradient re-weighting of navigation lane-change samples by remaining count to improve urgency representation.</li>
-          <li>Designed a lateral channel loss with scenario-differentiated weights (2× for low-speed creep lane-change) to mitigate lateral wobble and unreasonable lane changes.</li>
-          <li>Added <b>navipath / bev-prompt</b> navigation guidance heads (implicit guidance + navigation loss + explicit guidance): improved ramp lane-change timing and pre-intersection selection accuracy, reduced yaw rate on special lanes.</li>
-          <li>Built pure-VLM and Rule-based + VLM hybrid scene-mining operators for long-tail planning scenes; up to <b>93.33% precision</b>, <b>23k+</b> valid training samples mined; VLM inference/eval pipeline optimized with LMDeploy; key precision/recall improved <b>15%</b> via badcase analysis.</li>
-          <li>Fine-tuned and deployed <b>InternVL3 / Qwen3-VL</b> with ms-swift; cleaned &amp; QC'd 5000+ labeled samples into ShareGPT training sets; navigation scene recognition accuracy <b>+12%</b> via prompt and inference-config optimization.</li>
+          <li>End-to-end planning &amp; control and VLM scene-mining models; VLM mining operators (<b>93.33% precision</b>, <b>23k+</b> samples); fine-tuned <b>InternVL3 / Qwen3-VL</b> (+12%).</li>
+          <li>Diffusion-model-based end-to-end driving: trajectory generation, loss design and training iteration.</li>
         </ul>
       </div>
     </article>
@@ -445,10 +417,6 @@
           <li>Real-vehicle integration and track testing; improved trajectory continuity and control stability for sparse cones, sharp curves and path jumps.</li>
           <li>🏆 <b>2024 &amp; 2023 China Student Driverless Formula Competition (FSAC) — National Second Prize</b>.</li>
         </ul>
-        <div class="exp-photos">
-          <img src="assets/photos/team-1.svg" alt="FSAC driverless formula car, Jilin University racing team">
-          <img src="assets/photos/team-2.svg" alt="Track testing with the driverless formula racing team">
-        </div>
       </div>
     </article>
 
