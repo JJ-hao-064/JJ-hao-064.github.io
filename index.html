@@ -1,20 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jinghao Jiang</title>
-  <meta name="description" content="Personal homepage of Jinghao Jiang, M.S. student at Tongji University working on autonomous driving AI, VLM and edge-AI model deployment.">
-  <meta name="keywords" content="Jinghao Jiang, 姜京浩, Tongji University, Autonomous Driving, VLM, Edge AI, Battery SOH, SOC, Model Compression">
+  <title>姜京浩 · Jinghao Jiang</title>
+  <meta name="description" content="姜京浩（Jinghao Jiang），同济大学车辆工程硕士研究生，研究方向为动力电池 SOH 预测与边缘 AI 模型压缩部署。">
+  <meta name="keywords" content="姜京浩, Jinghao Jiang, 同济大学, 自动驾驶, VLM, 边缘AI, 电池SOH, SOC, 模型压缩">
   <meta name="author" content="Jinghao Jiang">
   <meta name="theme-color" content="#ffffff">
-  <meta property="og:title" content="Jinghao Jiang">
-  <meta property="og:description" content="M.S. student at Tongji University — autonomous driving AI, VLM and edge-AI model deployment.">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Jinghao Jiang">
-  <meta name="twitter:description" content="M.S. student at Tongji University — autonomous driving AI, VLM and edge-AI.">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
   <style>
     :root {
       --bg: #ffffff;
@@ -23,10 +16,6 @@
       --link: #1772d0;
       --hover: #f5f7f9;
       --border: #eaecef;
-      --venue: #a12a2a;
-      --edu: #159a8c;
-      --int: #3b82d6;
-      --team: #d9922b;
     }
     @media (prefers-color-scheme: dark) {
       :root {
@@ -36,10 +25,6 @@
         --link: #6cb2f5;
         --hover: #26292c;
         --border: #34383c;
-        --venue: #e58a86;
-        --edu: #2fb3a3;
-        --int: #6aa5e8;
-        --team: #e8b45a;
       }
     }
     * { box-sizing: border-box; }
@@ -47,452 +32,212 @@
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
       font-size: 16px;
-      line-height: 1.65;
+      line-height: 1.7;
       color: var(--text);
       background: var(--bg);
       margin: 0;
       -webkit-font-smoothing: antialiased;
     }
-    .container { max-width: 880px; margin: 0 auto; padding: 0 24px 64px; }
-
-    /* ── 吸顶导航 ─────────────────────────────── */
-    .nav {
+    .container { max-width: 820px; margin: 0 auto; padding: 0 22px 64px; }
+    nav {
       position: sticky; top: 0; z-index: 50;
-      margin: 0 -24px 26px; padding: 9px 18px;
-      display: flex; gap: 4px; overflow-x: auto;
+      margin: 0 -22px 30px; padding: 10px 18px;
+      display: flex; gap: 6px; overflow-x: auto;
       background: rgba(255, 255, 255, 0.82);
       -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
       scrollbar-width: none;
     }
-    .nav::-webkit-scrollbar { display: none; }
-    .nav a {
+    nav::-webkit-scrollbar { display: none; }
+    nav a {
       flex-shrink: 0; padding: 3px 12px; border-radius: 999px;
       color: var(--muted); font-size: 0.9rem; text-decoration: none;
     }
-    .nav a:hover { color: var(--link); background: var(--hover); text-decoration: none; }
-
-    /* ── About 头部 ──────────────────────────── */
-    .hero { margin-bottom: 6px; }
-    .hero, section { scroll-margin-top: 58px; }
-
-    /* ── 顶部个人信息 ─────────────────────────── */
-    .profile { display: flex; gap: 36px; align-items: flex-start; flex-wrap: wrap; }
-    .profile h1 { font-size: 2.1rem; line-height: 1.2; margin: 0 0 6px; font-weight: 700; letter-spacing: -0.01em; }
-    .tagline { color: var(--muted); margin: 0 0 16px; }
-    .links a {
-      display: inline-block;
-      padding: 3px 12px;
-      margin: 0 6px 8px 0;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      color: var(--link);
-      text-decoration: none;
-      font-size: 0.92rem;
-    }
-    .links a:hover { background: var(--hover); }
-
-    /* ── 各个板块 ─────────────────────────────── */
+    nav a:hover { color: var(--link); background: var(--hover); }
+    h1 { font-size: 2rem; margin: 0 0 6px; letter-spacing: -0.01em; }
+    h1 .cn { font-size: 1.15rem; font-weight: 500; margin-left: 8px; }
+    .tagline { color: var(--muted); margin: 0 0 10px; }
+    .contact { color: var(--muted); font-size: 0.92rem; margin: 0 0 18px; }
+    .contact a { color: var(--link); text-decoration: none; }
+    .contact a:hover { text-decoration: underline; }
+    .bio { margin: 0 0 8px; }
+    section { scroll-margin-top: 58px; }
     h2 {
-      font-size: 1.35rem;
-      margin: 2.75rem 0 1rem;
+      font-size: 1.3rem;
+      margin: 2.6rem 0 1rem;
       padding-bottom: 6px;
       border-bottom: 1px solid var(--border);
       font-weight: 700;
     }
     a { color: var(--link); text-decoration: none; }
     a:hover { text-decoration: underline; }
-    a:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; border-radius: 4px; }
-
-    .news ul { list-style: none; margin: 0; padding: 0; }
-    .news li { margin-bottom: 6px; padding-left: 0; }
-    .news .date { color: var(--muted); font-variant-numeric: tabular-nums; margin-right: 8px; }
-
-    /* ── 论文条目 ─────────────────────────────── */
-    .paper {
-      display: flex;
-      gap: 20px;
-      padding: 14px 12px;
-      margin: 0 -12px;
-      border-radius: 12px;
-      transition: background 0.15s ease;
-    }
-    .paper:hover { background: var(--hover); }
-    .paper + .paper { margin-top: 6px; }
-    .paper img.thumb {
-      width: 180px;
-      flex-shrink: 0;
-      border-radius: 8px;
-      align-self: flex-start;
-    }
-    .paper .title { font-weight: 600; font-size: 1.05rem; }
-    .paper .authors { margin: 2px 0; }
-    .paper .venue { color: var(--venue); font-weight: 600; }
-    .badge {
-      display: inline-block;
-      font-size: 0.72rem;
-      font-weight: 600;
-      padding: 1px 9px;
-      margin-left: 6px;
-      border-radius: 999px;
-      background: rgba(255, 200, 60, 0.25);
-      border: 1px solid rgba(200, 150, 30, 0.35);
-      color: var(--venue);
-      vertical-align: 2px;
-    }
-    .paper-links a {
-      display: inline-block;
-      padding: 1px 10px;
-      margin: 4px 6px 0 0;
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      font-size: 0.85rem;
-    }
-    .paper-links a:hover { background: var(--bg); text-decoration: none; }
-
-    /* ── Experience + 时间轴 ──────────────────── */
-    .tl-wrap { overflow-x: auto; margin: 6px 0 10px; padding-bottom: 2px; }
-    .tl { min-width: 680px; display: grid; grid-template-columns: 92px 1fr; row-gap: 8px; align-items: center; padding-top: 30px; }
-    .tl-years { grid-column: 2; position: relative; height: 16px; }
-    .tl-years span { position: absolute; top: 0; transform: translateX(-50%); font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
-    .tl-years span:first-child { transform: none; }
-    .tl-rowlabel { grid-column: 1; font-size: 12px; color: var(--muted); line-height: 1.35; }
-    .tl-lane { grid-column: 2; position: relative; height: 24px; background: var(--hover); border-radius: 999px; }
-    .tl-seg {
-      position: absolute; top: 0; height: 100%;
-      display: flex; align-items: center; padding: 0 10px;
-      border-radius: 999px; color: #fff; font-size: 11.5px; font-weight: 600;
-      text-decoration: none; white-space: nowrap; overflow: hidden;
-      transition: filter 0.12s ease;
-    }
-    .tl-seg:hover { text-decoration: none; filter: brightness(1.12); }
-    .tl-seg span { overflow: hidden; text-overflow: ellipsis; }
-    .seg-edu { background: var(--edu); }
-    .seg-int { background: var(--int); }
-    .seg-team { background: var(--team); }
-    .tl-seg::after {
-      content: attr(data-tip);
-      position: absolute; bottom: calc(100% + 7px); left: 50%; transform: translateX(-50%);
-      background: var(--text); color: var(--bg);
-      font-size: 11px; font-weight: 500; padding: 4px 9px; border-radius: 6px;
-      white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.12s; z-index: 5;
-    }
-    .tl-seg:hover::after { opacity: 1; }
-    .tl-seg.tip-start::after { left: 0; transform: none; }
-    .tl-seg.tip-end::after { left: auto; right: 0; transform: none; }
-
-    .exp-item { display: grid; grid-template-columns: 150px 1fr; gap: 18px; padding: 18px 12px; margin: 0 -12px; border-radius: 12px; scroll-margin-top: 16px; transition: background 0.15s ease; }
-    .exp-item:hover { background: var(--hover); }
-    .exp-date { color: var(--muted); font-size: 0.9rem; font-variant-numeric: tabular-nums; padding-top: 3px; }
-    .exp-head { font-weight: 600; font-size: 1.02rem; }
-    .exp-org { margin: 1px 0 4px; }
-    .exp-org .loc { color: var(--muted); font-size: 0.92rem; }
-    .exp-org .logo {
-      height: 22px; width: auto;
-      vertical-align: -6px;
-      margin-right: 8px;
-      border-radius: 5px;
-    }
-    .exp-type { display: inline-block; font-size: 0.72rem; font-weight: 600; padding: 1px 9px; border-radius: 999px; margin-left: 8px; vertical-align: 1px; }
-    .exp-type.edu { background: rgba(21, 154, 140, 0.15); color: #108477; }
-    .exp-type.int { background: rgba(59, 130, 214, 0.15); color: #2f6fc4; }
-    .exp-type.team { background: rgba(217, 146, 43, 0.15); color: #a5691a; }
-    .exp-project { display: inline-block; font-size: 0.82rem; padding: 1px 10px; margin: 2px 0 4px; border: 1px solid var(--border); border-radius: 999px; }
-    .exp-detail { margin: 4px 0 0; padding-left: 18px; }
-    .exp-detail li { margin-bottom: 2px; font-size: 0.95rem; }
-    .exp-desc { margin: 6px 0 0; font-size: 0.95rem; }
-    .exp-meta { color: var(--muted); font-size: 0.9rem; margin-top: 8px; }
-    @media (prefers-color-scheme: dark) {
-      .nav { background: rgba(26, 28, 30, 0.82); }
-      .exp-type.edu { color: #4fd0bf; }
-      .exp-type.int { color: #8abaf5; }
-      .exp-type.team { color: #f0b45a; }
-      .exp-org .logo { background: #f2f4f6; padding: 2px 3px; border-radius: 5px; }
-    }
-
-    /* ── Awards(获奖,分组展示) ──────────────── */
-    .award-group-title {
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin: 18px 0 4px;
-    }
-    .awards ul { list-style: none; margin: 0; padding: 0; }
-    .awards li { padding: 3px 10px; margin: 0 -10px 2px; border-radius: 8px; }
+    .item { margin-bottom: 18px; }
+    .item-head { display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: baseline; }
+    .item-head .title { font-weight: 600; font-size: 1.02rem; }
+    .item-head .org { color: var(--muted); }
+    .item-head .date { color: var(--muted); font-size: 0.9rem; font-variant-numeric: tabular-nums; margin-left: auto; }
+    .item .desc { color: var(--muted); font-size: 0.95rem; margin: 2px 0 6px; }
+    ul.detail { margin: 6px 0 0; padding-left: 20px; }
+    ul.detail li { margin-bottom: 3px; font-size: 0.95rem; }
+    .skills { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 28px; margin: 0; padding: 0; list-style: none; }
+    .skills li { padding: 5px 8px; margin: 0 -8px; border-radius: 8px; font-size: 0.95rem; }
+    .skills li:hover { background: var(--hover); }
+    .skills b { font-weight: 600; }
+    @media (max-width: 620px) { .skills { grid-template-columns: 1fr; } }
+    .awards { list-style: none; margin: 0; padding: 0; }
+    .awards li { padding: 3px 8px; margin: 0 -8px 2px; border-radius: 8px; display: flex; gap: 10px; }
     .awards li:hover { background: var(--hover); }
-    .awards .date { color: var(--muted); font-variant-numeric: tabular-nums; display: inline-block; min-width: 52px; }
-
-    /* ── 页脚 ─────────────────────────────────── */
+    .awards .yr { color: var(--muted); font-variant-numeric: tabular-nums; min-width: 44px; flex-shrink: 0; }
     footer {
-      margin-top: 4rem;
+      margin-top: 3.5rem;
       padding-top: 1rem;
       border-top: 1px solid var(--border);
       color: var(--muted);
       font-size: 0.85rem;
     }
-
-    /* ── 手机适配 ─────────────────────────────── */
-    @media (max-width: 680px) {
-      .paper { flex-direction: column; gap: 10px; }
-      .paper img.thumb { width: 100%; max-width: 320px; }
-      .exp-item { grid-template-columns: 1fr; gap: 4px; }
-      .exp-date { padding-top: 0; }
-    }
   </style>
 </head>
 <body>
 <div class="container">
-
-  <!-- ── 顶部导航(锚点索引,滚动时吸顶) ── -->
-  <nav class="nav">
-    <a href="#about">👤 About</a>
-    <a href="#news">🔥 News</a>
-    <a href="#pubs">📝 Publications</a>
-    <a href="#exp">🧭 Experience</a>
-    <a href="#projects">🔬 Projects</a>
-    <a href="#awards">🏆 Awards</a>
+<nav>
+    <a href="#about">关于</a>
+    <a href="#education">教育</a>
+    <a href="#skills">技能</a>
+    <a href="#experience">经历</a>
+    <a href="#projects">项目</a>
+    <a href="#awards">获奖</a>
   </nav>
 
-  <!-- ── About ── -->
-  <div class="hero" id="about">
-  <header class="profile">
-    <div class="intro">
-      <h1>Jinghao Jiang <span style="font-size: 1.2rem; font-weight: 500;">姜京浩</span></h1>
-      <p class="tagline">
-        M.S. student @ <a href="https://www.tongji.edu.cn/" target="_blank" rel="noopener noreferrer">Tongji University</a> ·
-        Autonomous Driving AI &amp; Edge AI
-      </p>
-
-      <div class="links">
-        <a href="mailto:15864216991@163.com" title="Email">✉️ Email</a>
-        <!-- <a href="https://scholar.google.com/citations?user=YOUR_SCHOLAR_ID" target="_blank">🎓 Google Scholar</a> -->
-        <!-- <a href="https://github.com/YOUR_GITHUB_ID" target="_blank">🐙 GitHub</a> -->
-        <a href="assets/cv.pdf" target="_blank">📄 CV</a>
-      </div>
-
-      <p>
-        I am a M.S. student in Vehicle Engineering (Automotive Electronics) at
-        <b>Tongji University</b>. My research focuses on <b>deep-learning-based battery
-        SOH / SOC estimation</b> and <b>edge-AI model compression &amp; deployment</b>.
-        I have interned at <b>Horizon Robotics</b> and <b>Schaeffler · Vitesco</b> (embedded software),
-        and served as planning &amp; control lead of a driverless Formula Student team,
-        winning national second prizes in 2023 and 2024. I received my B.Eng from
-        <b>Jilin University</b> in 2025 (rank 3/64, top 5%).
-      </p>
-    </div>
+  <header id="about">
+    <h1>Jinghao Jiang<span class="cn">姜京浩</span></h1>
+    <p class="tagline">同济大学 车辆工程 硕士研究生 · 自动驾驶 AI 与边缘 AI</p>
+    <p class="contact">
+      电话 15864216991 · 邮箱 <a href="mailto:15864216991@163.com">15864216991@163.com</a> · 微信 zz15864216991 · <a href="assets/cv.pdf" target="_blank">简历 PDF</a>
+    </p>
+    <p class="bio">
+      研究方向为基于深度学习的动力电池 SOH 预测与边缘 AI 模型压缩部署，技术关键词包括
+      IL / Diffusion / Transformer / Time Series Modeling / Edge AI。曾在 Horizon Robotics（地平线）担任自动驾驶规控与多模态算法实习生，
+      在 Schaeffler（纬湃科技）担任嵌入式软件实习生，并担任吉智无人驾驶方程式赛车队规划控制负责人。
+    </p>
   </header>
-  </div><!-- /hero -->
 
-  <!-- ── News ── -->
-  <section class="news" id="news">
-    <h2>🔥 News</h2>
-    <ul>
-      <li><span class="date">2026-05</span>Joined <b>Horizon Robotics</b> as an algorithm intern.</li>
-      <li><span class="date">2025-09</span>Started my M.S. in Vehicle Engineering at <b>Tongji University</b>.</li>
-      <li><span class="date">2025</span>Our conference paper on edge-AI battery SOH estimation was accepted by <b>CEVVE</b> (oral presentation).</li>
-      <li><span class="date">2024-11</span>🏆 <b>FSAC</b> China Student Driverless Formula Competition — National Second Prize.</li>
-      <li><span class="date">2024</span>Invention patent on LSTM-based vehicle load estimation was filed/granted.</li>
-    </ul>
-  </section>
-
-  <!-- ── Publications & Patents ── -->
-  <section class="pubs" id="pubs">
-    <h2>📝 Publications &amp; Patents</h2>
-
-    <article class="paper">
-      <div>
-        <div class="title">Battery SOH Estimation with Lightweight Deep Learning and On-MCU Deployment <span style="color: var(--muted); font-weight: 500;">(title TBD)</span></div>
-        <div class="authors">Jinghao Jiang, et al.</div>
-        <div class="venue">CEVVE 2025 <span class="badge">Oral</span></div>
+  <section id="education">
+    <h2>教育经历</h2>
+    <div class="item">
+      <div class="item-head">
+        <span class="title">同济大学</span><span class="org">车辆工程 · 硕士研究生</span><span class="date">2025.09 – 2028.03</span>
       </div>
-    </article>
-
-    <article class="paper">
-      <div>
-        <div class="title">一种基于LSTM神经网络的汽车载重估计方法 <span style="color: var(--muted); font-weight: 500;">(Invention Patent: LSTM-based Vehicle Load Estimation Method)</span></div>
-        <div class="authors">Jinghao Jiang, et al.</div>
-        <div class="venue">Chinese Invention Patent · 2024</div>
-      </div>
-    </article>
-  </section>
-
-  <!-- ── Experience(时间轴 + 详细经历) ── -->
-  <section class="exp" id="exp">
-    <h2>🧭 Experience</h2>
-
-    <div class="tl-wrap">
-      <div class="tl">
-        <div class="tl-years">
-          <span style="left:0%">2021</span>
-          <span style="left:10%">2022</span>
-          <span style="left:21%">2023</span>
-          <span style="left:32%">2024</span>
-          <span style="left:44%">2025</span>
-          <span style="left:55%">2026</span>
-          <span style="left:67%">2027</span>
-          <span style="left:80%">2028</span>
-        </div>
-        <div class="tl-rowlabel">🎓<br>Education</div>
-        <div class="tl-lane">
-          <a class="tl-seg seg-edu tip-start" href="#exp-jilin-beng" style="left:0%;width:42%" data-tip="B.Eng @ Jilin Univ. · 2021.09 – 2025.06"><span>B.Eng · Jilin Univ.</span></a>
-          <a class="tl-seg seg-edu tip-end" href="#exp-tongji-ms" style="left:46%;width:34%" data-tip="M.S. @ Tongji Univ. · 2025.09 – 2028.03 (expected)"><span>M.S. · Tongji Univ.</span></a>
-        </div>
-        <div class="tl-rowlabel">💼<br>Internship</div>
-        <div class="tl-lane">
-          <a class="tl-seg seg-int" href="#exp-schaeffler" style="left:38%;width:10%" data-tip="Schaeffler (Vitesco) · 2025.03 – 2025.06" aria-label="Schaeffler Vitesco, 2025.03 to 2025.06"><span>Schaeffler</span></a>
-          <a class="tl-seg seg-int tip-end" href="#exp-horizon" style="left:54%;width:12%" data-tip="Horizon Robotics · 2026.05 – 2026.11"><span>Horizon</span></a>
-        </div>
-        <div class="tl-rowlabel">🏎<br>Competition</div>
-        <div class="tl-lane">
-          <a class="tl-seg seg-team" href="#exp-team" style="left:9%;width:30%" data-tip="Driverless Formula Team, P&amp;C Lead · 2022.11 – 2024.11"><span>Formula Student Driverless</span></a>
-        </div>
-      </div>
+      <p class="desc">研究方向：基于深度学习的动力电池 SOH 预测与边缘 AI 模型压缩部署。
+        技术关键词：IL / Diffusion / Transformer / Time Series Modeling / Edge AI。</p>
     </div>
-    <p class="tagline" style="margin: 0 0 14px;">Timeline is simplified (non-linear time axis) — hover / tap the bars for exact dates.</p>
-
-    <article class="exp-item" id="exp-tongji-ms">
-      <div class="exp-date">Sep 2025 – Mar 2028<br>(Expected)</div>
-      <div>
-        <div class="exp-head">M.S. Student in Vehicle Engineering (Automotive Electronics) <span class="exp-type edu">Education</span></div>
-        <div class="exp-org"><img class="logo" src="assets/logos/tongji.svg" alt=""><a href="https://www.tongji.edu.cn/" target="_blank" rel="noopener noreferrer">Tongji University</a> <span class="loc">· Shanghai, China</span></div>
-        <p class="exp-desc">
-          Research on <b>deep-learning-based battery SOH / SOC prediction</b> and
-          <b>edge-AI model compression &amp; deployment</b>.
-          Keywords: Deep Learning / Transformer / Time Series Modeling / Edge AI / Model Compression.
-        </p>
-        </div>
-    </article>
-
-    <article class="exp-item" id="exp-jilin-beng">
-      <div class="exp-date">Sep 2021 – Jun 2025</div>
-      <div>
-        <div class="exp-head">B.Eng. Student in Automotive Service Engineering <span class="exp-type edu">Education</span></div>
-        <div class="exp-org"><img class="logo" src="assets/logos/jlu.svg" alt=""><a href="https://www.jlu.edu.cn/" target="_blank" rel="noopener noreferrer">Jilin University</a> <span class="loc">· Changchun, China</span></div>
-        <p class="exp-desc">
-          Major rank <b>3/64 (top 5%)</b>. Coursework: computer science fundamentals, Python,
-          control engineering, sensing technology, vehicle theory, automotive networks,
-          C/C++, digital / analog circuits.
-        </p>
+    <div class="item">
+      <div class="item-head">
+        <span class="title">吉林大学</span><span class="org">汽车服务工程 · 本科</span><span class="date">2021.09 – 2025.06</span>
       </div>
-    </article>
-
-    <article class="exp-item" id="exp-horizon">
-      <div class="exp-date">May 2026 – Nov 2026</div>
-      <div>
-        <div class="exp-head">Planning &amp; Control / Multimodal Algorithm Intern <span class="exp-type int">Internship</span></div>
-        <div class="exp-org"><img class="logo" src="assets/logos/horizon.svg" alt=""><a href="https://horizonrobotics.ai" target="_blank" rel="noopener noreferrer">Horizon Robotics</a> <span class="loc">· Beijing, China</span></div>
-        <ul class="exp-detail">
-          <li>End-to-end planning &amp; control and VLM scene-mining models; VLM mining operators (<b>93.33% precision</b>, <b>23k+</b> samples); fine-tuned <b>InternVL3 / Qwen3-VL</b> (+12%).</li>
-          <li>Diffusion-model-based end-to-end driving: trajectory generation, loss design and training iteration.</li>
-        </ul>
-      </div>
-    </article>
-
-    <article class="exp-item" id="exp-schaeffler">
-      <div class="exp-date">Mar 2025 – Jun 2025</div>
-      <div>
-        <div class="exp-head">Embedded Software Intern <span class="exp-type int">Internship</span></div>
-        <div class="exp-org"><img class="logo" src="assets/logos/schaeffler.svg" alt=""><a href="https://www.schaeffler.com" target="_blank" rel="noopener noreferrer">Schaeffler (Vitesco Technologies)</a> <span class="loc">· China</span></div>
-        <ul class="exp-detail">
-          <li>CAN bus communication testing; developed CAPL scripts on <b>Vector CANoe</b> for automated message parsing.</li>
-          <li>Optimized the log-analysis workflow; located and fixed 2 intermittent bus communication issues.</li>
-          <li>Static code analysis with <b>PC-LINT / Axivion</b> following MISRA C++ 2012; personal code defect rate below team average.</li>
-          <li>Implemented power-on initialization and core features for the NXP BMA6402 chip; participated in CDD driver debugging.</li>
-        </ul>
-      </div>
-    </article>
-
-    <article class="exp-item" id="exp-team">
-      <div class="exp-date">Nov 2022 – Nov 2024</div>
-      <div>
-        <div class="exp-head">Planning &amp; Control Lead, Driverless Formula Racing Team <span class="exp-type team">Competition</span></div>
-        <div class="exp-org"><img class="logo" src="assets/logos/racing-team.svg" alt="">Jilin University Driverless Formula Racing Team (吉智无人驾驶方程式赛车队)</div>
-        <ul class="exp-detail">
-          <li>Built the planning &amp; control stack on <b>Linux + ROS2</b>: cone detections, vehicle pose and speed in; local trajectory and steering / longitudinal control out; RViz visualization of path, control state and debug info.</li>
-          <li>Track topology from <b>Delaunay triangulation</b> with midline extraction; cubic <b>B-Spline</b> interpolation and arc-length resampling for continuous, differentiable local reference trajectories.</li>
-          <li>Min-curvature trajectory optimization under track-boundary constraints; speed profile from path curvature and lateral-acceleration limits for corner pre-braking and straight-line acceleration.</li>
-          <li>Designed an <b>NMPC</b> path-tracking controller on a kinematic bicycle model, jointly optimizing lateral / heading / speed error and control smoothness under steering, steering-rate, acceleration and boundary constraints.</li>
-          <li>Real-vehicle integration and track testing; improved trajectory continuity and control stability for sparse cones, sharp curves and path jumps.</li>
-          <li>🏆 <b>2024 &amp; 2023 China Student Driverless Formula Competition (FSAC) — National Second Prize</b>.</li>
-        </ul>
-      </div>
-    </article>
-
+      <p class="desc">专业排名 3/64（前 5%）。主修课程：计算机科学基础、Python、控制工程、传感技术、汽车理论、汽车网络、C/C++、数字/模拟电路。</p>
+    </div>
   </section>
 
-  <!-- ── Projects(项目与科研) ── -->
-  <section class="projects" id="projects">
-    <h2>🔬 Projects</h2>
-
-    <article class="exp-item">
-      <div class="exp-date">May 2025 – Present</div>
-      <div>
-        <div class="exp-head">Lightweight Transformer for Battery SOC Estimation on Edge BMS</div>
-        <ul class="exp-detail">
-          <li>Built SOC estimation samples from the public Lishen 18650 dataset: normalized voltage / current / temperature, sliding-window multivariate time-series inputs with window-end SOC labels.</li>
-          <li>Designed a <b>Transformer Encoder</b> SOC regression model with positional encoding; Multi-Head Self-Attention captures voltage recovery, current fluctuation and temperature relations across time steps.</li>
-          <li>Knowledge distillation: full encoder as teacher, lightweight student with fewer layers / hidden dims, aligned via prediction distillation and intermediate-feature matching.</li>
-          <li>FP32 inference verification and <b>INT8 quantization</b> with ONNX Runtime: model size, accuracy and CPU-side latency evaluation.</li>
-        </ul>
+  <section id="skills">
+    <h2>专业技能</h2>
+    <ul class="skills">
+      <li><b>编程与开发：</b>Python、MATLAB、Linux、Git</li>
+      <li><b>模型：</b>PyTorch、Transformer、Diffusion、VLM 微调、Prompt Engineering、时间序列预测</li>
+      <li><b>VLM 微调与部署：</b>InternVL3、Qwen3-VL；ms-swift、vLLM、LMDeploy</li>
+      <li><b>训练与实验设计：</b>Badcase 分析与归因、Loss 设计、正负样本构造、训练策略、消融实验、超参数调优、模型评测</li>
+      <li><b>数据挖掘：</b>自动驾驶场景挖掘、VLM 算子开发、模型评测</li>
+      <li><b>车载：</b>ROS2、CAN/CANFD、Simulink MBD、Vector CANoe</li>
+    </ul>
+  </section>
+<section id="experience">
+    <h2>经历</h2>
+    <div class="item">
+      <div class="item-head">
+        <span class="title">北京地平线信息技术有限公司</span><span class="org">自动驾驶规控与多模态算法实习生</span><span class="date">2026.05 – 至今</span>
       </div>
-    </article>
-
-    <article class="exp-item">
-      <div class="exp-date">Dec 2024 – May 2025</div>
-      <div>
-        <div class="exp-head">Edge-AI Battery SOH Estimation &amp; MCU Deployment</div>
-        <ul class="exp-detail">
-          <li>Extracted CC / CV charging-curve health features from the XJTU battery dataset with feature engineering and dimensionality analysis.</li>
-          <li>Built an <b>LSTM</b> time-series forecasting model with Bayesian-optimized hyperparameter search.</li>
-          <li>ONNX conversion and deployment to <b>STM32H743</b> via X-CUBE-AI; embedded performance evaluation of latency, memory footprint and deployability.</li>
-          <li>🏆 Accepted at <b>CEVVE</b> with an oral presentation.</li>
-        </ul>
+      <ul class="detail">
+        <li>参与自动驾驶端到端规控 DT 模型与 VLM 场景挖掘模型的开发、迭代与验证，覆盖正反例数据构建、Loss 设计、模型训练、可视化分析与消融实验。</li>
+        <li>设计并上线帧间一致性 Loss，对相邻帧轨迹与决策施加时序一致性约束，减少预测抖动与决策跳变，提升变道、跟车及复杂路口场景下的规划稳定性。</li>
+        <li>参与 InternVL3、Qwen3-VL 多模态模型 SFT 微调、部署与评测；推进 vLLM 部署，统一线上挖掘与离线评测推理链路，两条链路判定差异控制在 1% 以内。</li>
+        <li>开发 Rule-based + VLM 混合场景挖掘算子，面向锥桶/水马占道变道等规控长尾场景，累计挖掘有效难例 1634 条。</li>
+        <li>熟练使用 DT 工具链完成可视化、数据配比与训练任务提交，通过 1000+ 条人工抽检定位并优化 3 类典型 Badcase，推动关键准召指标提升 15%。</li>
+      </ul>
+    </div>
+    <div class="item">
+      <div class="item-head">
+        <span class="title">舍弗勒 · 纬湃科技</span><span class="org">嵌入式软件实习生</span><span class="date">2025.02 – 2025.06</span>
       </div>
-    </article>
-
-    <article class="exp-item">
-      <div class="exp-date">May 2023 – May 2024</div>
-      <div>
-        <div class="exp-head">LSTM-based Vehicle Load Estimation (Invention Patent)</div>
-        <ul class="exp-detail">
-          <li>Built an LSTM-based vehicle load prediction model covering data processing, training and experimental validation.</li>
-          <li>🏆 Invention patent: 《一种基于LSTM神经网络的汽车载重估计方法》.</li>
-        </ul>
+      <ul class="detail">
+        <li>基于纬湃科技 SDA 平台进行 MBD 算法开发，参与 EIS-BMS 算法迭代。</li>
+        <li>负责 NXP BMA6402 芯片上电初始化与核心功能开发，参与 CDD 驱动调试。</li>
+        <li>基于 Vector CANoe 开发 CAPL 脚本实现 CAN 报文自动化解析，定位并解决 2 起偶发性总线通信异常。</li>
+        <li>基于 PC-LINT / Axivion 完成代码静态分析，遵循 MISRA C++ 2012 规范。</li>
+      </ul>
+    </div>
+    <div class="item">
+      <div class="item-head">
+        <span class="title">吉智无人驾驶方程式赛车队</span><span class="org">规划控制负责人</span><span class="date">2022.11 – 2024.11</span>
       </div>
-    </article>
+      <ul class="detail">
+        <li>基于 Linux / ROS2 搭建无人驾驶赛车规划控制链路，完成赛道处理、局部轨迹规划、速度规划、NMPC 控制及 RViz 可视化调试。</li>
+        <li>基于 Delaunay 三角剖分提取赛道中心线，结合 B-Spline 平滑、最小曲率优化与动力学约束生成连续参考轨迹及速度轨迹。</li>
+        <li>参与实车联调与赛道测试，针对锥桶稀疏、急弯及路径跳变等场景优化轨迹连续性与控制稳定性；获 2024 中国大学生无人驾驶方程式大赛全国二等奖。</li>
+      </ul>
+    </div>
   </section>
 
-  <!-- ── Awards(获奖及荣誉,分组展示) ── -->
-  <section class="awards" id="awards">
-    <h2>🏆 Awards &amp; Honors</h2>
+  <section id="projects">
+    <h2>项目与科研经历</h2>
+    <div class="item">
+      <div class="item-head">
+        <span class="title">面向边缘 BMS 的轻量化 Transformer 动力电池 SOC 估计</span><span class="date">2025.09 – 2025.12</span>
+      </div>
+      <ul class="detail">
+        <li>基于力神数据集对电压、电流、温度归一化，采用滑动窗口生成多变量时序输入。</li>
+        <li>设计 Transformer Encoder 型 SOC 回归模型，以 Multi-Head Self-Attention 建模时间步间关系，构造 MLP 回归头完成 SOC 预测。</li>
+        <li>以 Teacher 模型为基础构建轻量化 Student 模型，通过预测蒸馏与中间特征对齐提升性能。</li>
+        <li>完成 ONNX 导出与 INT8 量化部署，对比 FP32 / INT8 模型在精度、体积与 CPU 端推理延迟上的表现。</li>
+      </ul>
+    </div>
+    <div class="item">
+      <div class="item-head">
+        <span class="title">基于边缘 AI 的电池 SOH 估计与 MCU 部署</span><span class="date">2024.12 – 2025.05</span>
+      </div>
+      <ul class="detail">
+        <li>分析充电曲线，提取 CC / CV 阶段健康特征并完成特征工程与降维分析。</li>
+        <li>构建 LSTM 时序预测模型，并通过贝叶斯优化完成超参数搜索。</li>
+        <li>完成 ONNX 转换并基于 X-CUBE-AI 部署至 STM32H743，评估推理延迟、内存占用与可部署性。</li>
+        <li>成果：会议论文（CEVVE）录用并做口头报告。</li>
+      </ul>
+    </div>
+    <div class="item">
+      <div class="item-head">
+        <span class="title">基于 LSTM 的车辆载重估计（发明专利）</span><span class="date">2023.05 – 2024.05</span>
+      </div>
+      <ul class="detail">
+        <li>构建基于 LSTM 的车辆载重预测模型，完成数据处理、模型训练与实验验证。</li>
+        <li>成果：发明专利《一种基于 LSTM 神经网络的汽车载重估计方法》。</li>
+      </ul>
+    </div>
+  </section>
 
-    <div class="award-group-title">Competitions · 竞赛获奖</div>
-    <ul>
-      <li><span class="date">2025</span>3rd Energy Electronics Industry Innovation Competition — National Second Prize</li>
-      <li><span class="date">2024</span>China Student Driverless Formula Competition (FSAC) — National Second Prize</li>
-      <li><span class="date">2023</span>China Student Driverless Formula Competition (FSAC) — National Second Prize</li>
-      <li><span class="date">2022</span>National College Student Mathematics Competition — Provincial Third Prize</li>
-    </ul>
-
-    <div class="award-group-title">Scholarships · 奖学金</div>
-    <ul>
-      <li><span class="date">2024</span>University Second-Class Scholarship</li>
-      <li><span class="date">2023</span>National Encouragement Scholarship</li>
-    </ul>
-
-    <div class="award-group-title">Honors · 荣誉称号</div>
-    <ul>
-      <li><span class="date">2025</span>Outstanding Graduate of the School</li>
-      <li><span class="date">—</span>Multiple Outstanding Student honors (school &amp; college level)</li>
+  <section id="awards">
+    <h2>获奖情况</h2>
+    <ul class="awards">
+      <li><span class="yr">2025</span>第三届能源电子产业创新大赛 全国二等奖</li>
+      <li><span class="yr">2025</span>院优秀毕业生</li>
+      <li><span class="yr">2024</span>中国大学生无人驾驶方程式大赛 全国二等奖</li>
+      <li><span class="yr">2024</span>校二等奖学金</li>
+      <li><span class="yr">2023</span>国家奖学金</li>
+      <li><span class="yr">2023</span>中国大学生无人驾驶方程式大赛 全国二等奖</li>
+      <li><span class="yr">2022</span>全国大学生数学竞赛 省级三等奖</li>
+      <li><span class="yr">—</span>多次校级 / 院级优秀学生</li>
     </ul>
   </section>
 
   <footer>
-    Last updated: 2026-09 · Built with plain HTML, no framework.
+    最后更新：2026-09
   </footer>
-
 </div>
 </body>
 </html>
